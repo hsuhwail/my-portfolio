@@ -26,7 +26,7 @@
         .sidebar {
             width: 550px; 
             height: 100vh;
-            background: #7d61a8; 
+            background: #7d61a8; /* Warm Amethyst Purple */
             color: white;
             padding: 60px;
             position: fixed;
@@ -69,16 +69,37 @@
             text-transform: uppercase;
             letter-spacing: 4px;
             color: #ebdfff;
+            margin-bottom: 25px;
+        }
+
+        .current-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
             margin-bottom: 20px;
         }
 
-        .currently-section p {
-            font-size: 28px;
-            line-height: 1.4;
-            margin-bottom: 15px;
+        .company-logo {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: white;
+            padding: 5px;
+            transition: 0.2s;
         }
 
-        /* SOCIAL ICONS: Bigger and Moved Up */
+        .company-logo:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .current-item p {
+            font-size: 24px;
+            line-height: 1.2;
+        }
+
+        /* BIGGER SOCIAL ICONS */
         .social-icons {
             display: flex;
             gap: 40px;
@@ -167,6 +188,7 @@
             margin-bottom: 40px;
         }
 
+        /* PILL GRID */
         .class-grid {
             display: flex;
             flex-wrap: wrap;
@@ -208,6 +230,7 @@
             display: block;
         }
 
+        /* VIEW PHOTOS BUTTON */
         .photo-btn {
             background: #5e4385;
             color: white;
@@ -225,10 +248,7 @@
             transform: translateY(-5px);
         }
 
-        @media (max-width: 1100px) {
-            .preview-grid { grid-template-columns: 1fr; }
-        }
-
+        /* CUSTOM SCROLLBAR */
         .main-content::-webkit-scrollbar { width: 15px; }
         .main-content::-webkit-scrollbar-thumb { background: #b194d1; border-radius: 10px; }
     </style>
@@ -243,8 +263,18 @@
             
             <div class="currently-section">
                 <h3>Currently → </h3>
-                <p><i class="fas fa-university"></i> MS Cyberdefense @ Dakota State University</p>
-                <p><i class="fas fa-briefcase"></i> NOC Analyst @ L3Harris</p>
+                <div class="current-item">
+                    <a href="https://dsu.edu/" target="_blank">
+                        <img src="dsu.jpeg" alt="DSU" class="company-logo">
+                    </a>
+                    <p>MS Cyberdefense @ DSU</p>
+                </div>
+                <div class="current-item">
+                    <a href="https://www.l3harris.com/" target="_blank">
+                        <img src="l3harris.jpeg" alt="L3Harris" class="company-logo">
+                    </a>
+                    <p>NOC Analyst @ L3Harris</p>
+                </div>
             </div>
         </div>
 
@@ -256,7 +286,6 @@
     </aside>
 
     <main class="main-content">
-        
         <section id="experience">
             <span class="section-tag">Experience</span>
             <h2>Work History</h2>
@@ -296,28 +325,6 @@
                     <span class="job-title">CBRE</span>
                     <span class="sub-info">Software Engineer Intern</span>
                     <p class="description">Spearheaded nationwide upgrade, deploying 408 Crestron schedulers and 70 controllers in 10 weeks, 33% faster than expected.</p>
-                    <div class="class-grid">
-                        <div class="class-pill">Documentation</div>
-                        <div class="class-pill">System Implementation</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="academic">
-            <span class="section-tag">Academic</span>
-            <h2>Class Projects</h2>
-            <div class="job-entry">
-                <div class="job-time">2024</div>
-                <div class="job-details">
-                    <span class="job-title">Senior Capstone Project</span>
-                    <span class="sub-info">The University of Texas @ Dallas</span>
-                    <p class="description">Led an 11-member cross-functional team using Agile methodology to deliver a modernized, publicly accessible website redesign.</p>
-                    <div class="class-grid">
-                        <div class="class-pill">Communication</div>
-                        <div class="class-pill">Leadership</div>
-                        <div class="class-pill">UI Design</div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -357,18 +364,15 @@
                 <div class="class-pill">Cybersecurity Governance</div>
                 <div class="class-pill">Data Privacy</div>
                 <div class="class-pill">Managing Security Risks</div>
-                <div class="class-pill">Network Security Monitoring & Intrusion Detection</div>
-                <div class="class-pill">Network & Information Security</div>
-                <div class="class-pill">Information Technology Infrastructure</div>
+                <div class="class-pill">Network Security Monitoring</div>
                 <div class="class-pill">Offensive Security</div>
                 <div class="class-pill">Data Structures</div>
-                <div class="class-pill">Information Technology Cybersecurity</div>
-                <div class="class-pill">Object Oriented Programming</div>
                 <div class="class-pill">Systems Analysis & Design</div>
             </div>
         </section>
 
         <a href="photos.html" class="photo-btn">View Photography →</a>
+        
         <div id="preview-grid" class="preview-grid"></div>
 
     </main>
@@ -377,7 +381,7 @@
         function loadPreviews() {
             const container = document.getElementById('preview-grid');
             if(!container) return;
-            
+
             const totalPhotos = 11;
             const count = 4;
             let picked = [];
