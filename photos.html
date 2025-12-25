@@ -1,68 +1,193 @@
-<style>
-    /* --- CENTERED BOLD HEADER --- */
-    .gallery-header {
-        text-align: center;
-        padding: 80px 20px 60px 20px; /* Generous spacing at the top */
-        max-width: 1200px;
-        margin: 0 auto;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Collection | Hamza Suhwail</title>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Instrument Sans', sans-serif; 
+        }
+        
+        body { 
+            background-color: #fcf9ff; 
+            padding: 40px; 
+        }
 
-    .gallery-header h1 {
-        font-size: 90px; /* Big and bold */
-        font-weight: 800;
-        letter-spacing: -4px;
-        color: #3a2456;
-        text-transform: uppercase;
-        line-height: 0.8;
-        margin-bottom: 10px;
-    }
+        /* --- CENTERED BOLD HEADER --- */
+        .gallery-header {
+            text-align: center;
+            padding: 80px 20px 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    .gallery-header .name-subtitle {
-        font-size: 32px;
-        font-weight: 400;
-        color: #7d61a8; /* Using your signature purple */
-        letter-spacing: 2px;
-        text-transform: none;
-    }
+        .gallery-header h1 {
+            font-size: 90px;
+            font-weight: 800;
+            letter-spacing: -4px;
+            color: #3a2456;
+            text-transform: uppercase;
+            line-height: 0.8;
+            margin-bottom: 15px;
+        }
 
-    /* Return button styling */
-    .back-btn-container {
-        margin-top: 30px;
-    }
+        .name-subtitle {
+            font-size: 32px;
+            font-weight: 400;
+            color: #7d61a8;
+            letter-spacing: 2px;
+        }
 
-    .back-home {
-        text-decoration: none;
-        color: #7d61a8;
-        font-weight: 700;
-        font-size: 18px;
-        border: 2px solid #7d61a8;
-        padding: 10px 25px;
-        border-radius: 50px;
-        transition: 0.3s ease;
-    }
+        .back-btn-container {
+            margin-top: 35px;
+        }
 
-    .back-home:hover {
-        background: #7d61a8;
-        color: white;
-    }
+        .back-home {
+            text-decoration: none;
+            color: #7d61a8;
+            font-weight: 700;
+            font-size: 18px;
+            border: 2px solid #7d61a8;
+            padding: 12px 30px;
+            border-radius: 50px;
+            transition: 0.3s;
+            display: inline-block;
+        }
 
-    /* Ensure the grid still looks good with the new header */
-    .masonry-container {
-        margin-top: 20px;
-    }
+        .back-home:hover {
+            background: #7d61a8;
+            color: white;
+        }
 
-    /* Responsive scaling for mobile */
-    @media (max-width: 768px) {
-        .gallery-header h1 { font-size: 50px; letter-spacing: -2px; }
-        .gallery-header .name-subtitle { font-size: 20px; }
-    }
-</style>
+        /* --- FULL PAGE MASONRY (TETRIS STYLE) --- */
+        .masonry-container {
+            column-count: 4; /* Spreads across the page */
+            column-gap: 20px;
+            max-width: 1600px;
+            margin: 40px auto;
+        }
 
-<header class="gallery-header">
-    <h1>Photo Collection</h1>
-    <div class="name-subtitle">Hamza Suhwail</div>
-    
-    <div class="back-btn-container">
-        <a href="index.html" class="back-home">← Back to Portfolio</a>
-    </div>
-</header>
+        .photo-item {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 4px solid #3a2456;
+            position: relative;
+            transition: transform 0.3s ease;
+            background: #3a2456;
+        }
+
+        .photo-item:hover {
+            transform: scale(1.02);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: auto; /* NO CUTTING - Original proportions */
+            display: block;
+        }
+
+        .photo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(58, 36, 86, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .photo-item:hover .photo-overlay {
+            opacity: 1;
+        }
+
+        .photo-overlay h3 {
+            color: white;
+            font-size: 20px;
+            font-weight: 800;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* --- RESPONSIVE STEPS --- */
+        @media (max-width: 1200px) {
+            .masonry-container { column-count: 2; }
+            .gallery-header h1 { font-size: 60px; }
+        }
+        @media (max-width: 600px) {
+            .masonry-container { column-count: 1; }
+            .gallery-header h1 { font-size: 40px; }
+            .name-subtitle { font-size: 22px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="gallery-header">
+        <h1>Photo Collection</h1>
+        <div class="name-subtitle">Hamza Suhwail</div>
+        <div class="back-btn-container">
+            <a href="index.html" class="back-home">← Back to Portfolio</a>
+        </div>
+    </header>
+
+    <main class="masonry-container">
+        <div class="photo-item">
+            <img src="pics/1.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 01</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/2.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 02</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/3.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 03</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/4.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 04</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/5.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 05</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/6.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 06</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/7.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 07</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/8.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 08</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/9.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 09</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/10.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 10</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/11.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 11</h3></div>
+        </div>
+    </main>
+
+</body>
+</html>
