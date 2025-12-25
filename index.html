@@ -122,7 +122,7 @@
             margin-bottom: 30px;
         }
 
-        /* FLEX LAYOUT FOR ENTRIES */
+        /* JOB ENTRIES */
         .job-entry {
             margin-bottom: 100px;
             display: flex;
@@ -137,9 +137,7 @@
             padding-top: 10px;
         }
 
-        .job-details {
-            flex: 1;
-        }
+        .job-details { flex: 1; }
 
         .job-title {
             color: #3a2456;
@@ -165,7 +163,7 @@
             margin-bottom: 40px;
         }
 
-        /* PILL GRID */
+        /* SKILLS GRID */
         .class-grid {
             display: flex;
             flex-wrap: wrap;
@@ -181,26 +179,30 @@
             font-size: 22px;
         }
 
-        /* --- PHOTO PREVIEW SECTION --- */
-        .preview-container {
+        /* PHOTO PREVIEW STYLING */
+        .large-preview-container {
             display: flex;
-            gap: 20px;
-            margin-bottom: 30px;
+            flex-direction: column;
+            gap: 40px;
+            margin-top: 50px;
+            padding-bottom: 100px;
         }
 
-        .preview-card {
-            width: 180px;
-            height: 180px;
-            border: 4px solid #3a2456;
-            border-radius: 15px;
+        .large-preview-card {
+            width: 100%;
+            height: 600px;
+            border: 6px solid #3a2456;
+            border-radius: 30px;
             overflow: hidden;
             background: #eee;
+            box-shadow: 0 20px 40px rgba(58, 36, 86, 0.1);
         }
 
-        .preview-card img {
+        .large-preview-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         /* FOOTER BUTTON */
@@ -213,7 +215,6 @@
             font-weight: 800;
             font-size: 32px;
             display: inline-block;
-            margin-bottom: 100px;
             transition: 0.3s;
         }
 
@@ -237,7 +238,7 @@
             
             <div class="currently-section">
                 <h3>Currently → </h3>
-                <p><i class="fas fa-university"></i> MS Cyberdefense @ Dakota State University</p>
+                <p><i class="fas fa-university"></i> MS Cyberdefense @ DSU</p>
                 <p><i class="fas fa-briefcase"></i> NOC Analyst @ L3Harris</p>
             </div>
         </div>
@@ -253,72 +254,19 @@
         <section id="experience">
             <span class="section-tag">Experience</span>
             <h2>Work History</h2>
-
             <div class="job-entry">
                 <div class="job-time">4/25 — Current</div>
                 <div class="job-details">
                     <span class="job-title">L3Harris Technologies</span>
                     <span class="sub-info">NOC Analyst</span>
-                    <p class="description">Supported 24/7 NOC operations by monitoring network health, analyzing incidents on Red Hat Enterprise Linux, and managing incident workflows in ServiceNow.</p>
-                    <div class="class-grid">
-                        <div class="class-pill">Wazuh</div>
-                        <div class="class-pill">Red Hat Linux</div>
-                        <div class="class-pill">ServiceNow</div>
-                        <div class="class-pill">Access Control</div>
-                    </div>
+                    <p class="description">Supported 24/7 NOC operations monitoring network health and incident workflows.</p>
                 </div>
             </div>
-
-            <div class="job-entry">
-                <div class="job-time">10/23 — 3/24</div>
-                <div class="job-details">
-                    <span class="job-title">DC Integrated Systems</span>
-                    <span class="sub-info">Network Engineer</span>
-                    <p class="description">Secured network infrastructure by configuring Cisco firewalls, routers, and switches and mitigating Layer 1 vulnerabilities for customers.</p>
-                    <div class="class-grid">
-                        <div class="class-pill">System Hardening</div>
-                        <div class="class-pill">TCP/IP</div>
-                        <div class="class-pill">Layer 1 Management</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="job-entry">
-                <div class="job-time">6/23 - 8/23</div>
-                <div class="job-details">
-                    <span class="job-title">CBRE</span>
-                    <span class="sub-info">Software Engineer Intern</span>
-                    <p class="description">Spearheaded nationwide upgrade, deploying 408 Crestron schedulers and 70 controllers in 10 weeks, 33% faster than expected.</p>
-                    <div class="class-grid">
-                        <div class="class-pill">Documentation</div>
-                        <div class="class-pill">System Implementation</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="academic">
-            <span class="section-tag">Academic</span>
-            <h2>Class Projects</h2>
-            <div class="job-entry">
-                <div class="job-time">2024</div>
-                <div class="job-details">
-                    <span class="job-title">Senior Capstone Project</span>
-                    <span class="sub-info">The University of Texas @ Dallas</span>
-                    <p class="description">Led an 11-member cross-functional team using Agile methodology to deliver a modernized, publicly accessible website redesign.</p>
-                    <div class="class-grid">
-                        <div class="class-pill">Communication</div>
-                        <div class="class-pill">Leadership</div>
-                        <div class="class-pill">UI Design</div>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
 
         <section id="education">
             <span class="section-tag">Education</span>
-            <h2>Degrees & Certs</h2>
-            
+            <h2>Degrees</h2>
             <div class="job-entry">
                 <div class="job-time">2025 - 2027</div>
                 <div class="job-details">
@@ -326,51 +274,18 @@
                     <span class="sub-info">MS in Cyber Defense</span>
                 </div>
             </div>
-
-            <div class="job-entry">
-                <div class="job-time">2020 — 2024</div>
-                <div class="job-details">
-                    <span class="job-title">University of Texas at Dallas</span>
-                    <span class="sub-info">BS in Information Technology (Cybersecurity)</span>
-                </div>
-            </div>
-
-            <div class="job-entry">
-                <div class="job-time">CERTS</div>
-                <div class="job-details">
-                    <p class="description">CompTIA Security+ SY0-701<br>CompTIA CySA+</p>
-                </div>
-            </div>
         </section>
-
-        <section id="skills">
-            <span class="section-tag">Knowledge</span>
-            <h2>Classes Taken</h2>
-            <div class="class-grid">
-                <div class="class-pill">Cybersecurity Governance</div>
-                <div class="class-pill">Data Privacy</div>
-                <div class="class-pill">Managing Security Risks</div>
-                <div class="class-pill">Network Security Monitoring & Intrusion Detection</div>
-                <div class="class-pill">Network & Information Security</div>
-                <div class="class-pill">Information Technology Infrastructure</div>
-                <div class="class-pill">Offensive Security</div>
-                <div class="class-pill">Data Structures</div>
-                <div class="class-pill">Information Technology Cybersecurity</div>
-                <div class="class-pill">Object Oriented Programming</div>
-                <div class="class-pill">Systems Analysis & Design</div>
-            </div>
-        </section>
-
-        <div id="preview-area" class="preview-container"></div>
 
         <a href="photos.html" class="photo-btn">View Photography →</a>
+
+        <div id="large-preview-area" class="large-preview-container"></div>
     </main>
 
     <script>
-        function loadPreviews() {
-            const container = document.getElementById('preview-area');
-            const total = 11; // You have 1 through 11
-            const count = 3;  // Show 3 at a time
+        function loadLargePreviews() {
+            const container = document.getElementById('large-preview-area');
+            const total = 11; // 1.jpeg through 11.jpeg
+            const count = 2;  // Showing 2 big ones
             let picked = [];
 
             while(picked.length < count) {
@@ -380,14 +295,12 @@
 
             picked.forEach(num => {
                 container.innerHTML += `
-                    <div class="preview-card">
-                        <img src="pics/${num}.jpeg" alt="Random Preview">
+                    <div class="large-preview-card">
+                        <img src="pics/${num}.jpeg" alt="Featured Work">
                     </div>`;
             });
         }
-
-        // Run this when the page loads
-        window.onload = loadPreviews;
+        window.onload = loadLargePreviews;
     </script>
 
 </body>
