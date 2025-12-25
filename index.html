@@ -1,193 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Personal Site</title>
-
-  <!-- Inter font (matches modern academic portfolios) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --text-main: #111;
-      --text-muted: #555;
-      --border-light: #e6e6e6;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #fff;
-      color: var(--text-main);
-      line-height: 1.65;
-      font-size: 15.5px;
-    }
-
-    /* LEFT SIDEBAR */
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 300px;
-      height: 100vh;
-      padding: 48px 32px;
-      border-right: 1px solid var(--border-light);
-      background: #fff;
-    }
-
-    .sidebar h1 {
-      font-size: 1.7rem;
-      font-weight: 600;
-      margin: 0 0 6px;
-    }
-
-    .sidebar .subtitle {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      margin-bottom: 28px;
-    }
-
-    .sidebar p {
-      font-size: 0.92rem;
-      margin: 8px 0;
-    }
-
-    .sidebar a {
-      color: var(--text-main);
-      text-decoration: none;
-    }
-
-    .sidebar a:hover {
-      text-decoration: underline;
-    }
-
-    .sidebar nav {
-      margin-top: 32px;
-    }
-
-    .sidebar nav a {
-      display: block;
-      margin: 10px 0;
-      font-size: 0.92rem;
-      color: var(--text-muted);
-    }
-
-    /* RIGHT CONTENT */
-    .content {
-      margin-left: 300px;
-      padding: 64px 64px 120px;
-      max-width: 760px;
-    }
-
-    section {
-      margin-bottom: 96px;
-    }
-
-    section h2 {
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin-bottom: 18px;
-    }
-
-    section p {
-      margin-bottom: 14px;
-      color: #222;
-    }
-
-    ul {
-      padding-left: 18px;
-    }
-
-    li {
-      margin-bottom: 10px;
-    }
-
-    /* MOBILE */
-    @media (max-width: 768px) {
-      .sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
-        border-right: none;
-        border-bottom: 1px solid var(--border-light);
-      }
-
-      .content {
-        margin-left: 0;
-        padding: 40px 24px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-  <!-- LEFT STATIC PANEL -->
-  <aside class="sidebar">
-    <img src="Portrait.JPG" alt="Your Name" class="profile-pic">
-    <h1>Your Name</h1>
-    <div class="subtitle">MSCS Student · University Name</div>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="profile-section">
+                <img src="your-photo.jpg" alt="Your Name" class="profile-pic">
+                <h1>Your Name</h1>
+                
+                <div class="currently">
+                    <h3>Currently</h3>
+                    <p><i class="fas fa-university"></i> Student at [University Name]</p>
+                    <p><i class="fas fa-briefcase"></i> Intern at [Company Name]</p>
+                </div>
 
-    <p>Email: your@email.com</p>
-    <p><a href="#">GitHub</a> · <a href="#">LinkedIn</a></p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://music.apple.com/profile/yourname" target="_blank"><i class="fab fa-apple"></i></a>
+                </div>
+            </div>
+        </aside>
 
-    <nav>
-      <a href="#about">About</a>
-      <a href="#research">Research</a>
-      <a href="#papers">Papers</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </aside>
+        <main class="content">
+            <section id="experience">
+                <h2>Work Experience</h2>
+                <div class="card">
+                    <h3>Job Title</h3>
+                    <p>Company Name | Date - Present</p>
+                    <ul>
+                        <li>Lead a project to improve X by 20%.</li>
+                        <li>Collaborated with team members on Y.</li>
+                    </ul>
+                </div>
+            </section>
 
-  <!-- RIGHT SCROLLING CONTENT -->
-  <main class="content">
+            <section id="projects">
+                <h2>Class Projects</h2>
+                <div class="card">
+                    <h3>Project Name</h3>
+                    <p>Description of what you built and the technologies used.</p>
+                </div>
+            </section>
 
-    <section id="about">
-      <h2>About</h2>
-      <p>
-        Short academic bio goes here. Keep paragraphs concise and readable.
-        The narrower width and spacing closely match the reference site.
-      </p>
-    </section>
+            <section id="classes">
+                <h2>Classes</h2>
+                <ul class="class-list">
+                    <li>Data Structures & Algorithms</li>
+                    <li>Web Development</li>
+                    <li>Digital Photography</li>
+                </ul>
+            </section>
 
-    <section id="research">
-      <h2>Research</h2>
-      <p>
-        Description of research interests, focus areas, or ongoing work.
-      </p>
-    </section>
-
-    <section id="papers">
-      <h2>Papers</h2>
-      <ul>
-        <li>
-          Paper title goes here. <a href="#">PDF</a>
-        </li>
-      </ul>
-    </section>
-
-    <section id="experience">
-      <h2>Experience</h2>
-      <p>
-        Brief professional or academic experience summary.
-      </p>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>
-        Email or additional contact information.
-      </p>
-    </section>
-
-  </main>
+            <div class="photo-cta">
+                <a href="photos.html" class="btn">View My Photography →</a>
+            </div>
+        </main>
+    </div>
 
 </body>
 </html>
