@@ -3,65 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Portfolio | Your Name</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <div class="container">
+    <div class="app-container">
         <aside class="sidebar">
-            <div class="profile-section">
-                <img src="Portrait.JPG" alt="Your Name" class="profile-pic">
-                <h1>Your Name</h1>
+            <div class="sidebar-content">
+                <img src="Portrait.JPG" alt="Me" class="profile-pic">
+                <h1 class="name-title">Your Name</h1>
                 
-                <div class="currently">
-                    <h3>Currently</h3>
-                    <p><i class="fas fa-university"></i> Student at [University Name]</p>
-                    <p><i class="fas fa-briefcase"></i> Intern at [Company Name]</p>
+                <div class="status-card">
+                    <span class="status-label">CURRENTLY</span>
+                    <p>🎓 Studying Computer Science</p>
+                    <p>💼 Interning at Tech Corp</p>
                 </div>
 
-                <div class="social-links">
-                    <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://music.apple.com/profile/yourname" target="_blank"><i class="fab fa-apple"></i></a>
+                <div class="social-grid">
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-apple"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
                 </div>
             </div>
         </aside>
 
-        <main class="content">
-            <section id="experience">
-                <h2>Work Experience</h2>
-                <div class="card">
-                    <h3>Job Title</h3>
-                    <p>Company Name | Date - Present</p>
-                    <ul>
-                        <li>Lead a project to improve X by 20%.</li>
-                        <li>Collaborated with team members on Y.</li>
-                    </ul>
+        <main class="main-content">
+            <section class="content-block">
+                <h2 class="section-heading">Work Experience</h2>
+                <div class="bento-item">
+                    <h3>Frontend Developer Intern</h3>
+                    <span class="date">May 2024 - Present</span>
+                    <p>Building responsive web applications using React and Tailwind CSS. Improved site performance by 30% through image optimization.</p>
+                </div>
+                <div class="bento-item">
+                    <h3>IT Assistant</h3>
+                    <span class="date">Aug 2023 - May 2024</span>
+                    <p>Managed university server hardware and provided technical support for 500+ students and faculty members.</p>
                 </div>
             </section>
 
-            <section id="projects">
-                <h2>Class Projects</h2>
-                <div class="card">
-                    <h3>Project Name</h3>
-                    <p>Description of what you built and the technologies used.</p>
+            <section class="content-block">
+                <h2 class="section-heading">Class Projects</h2>
+                <div class="bento-item">
+                    <h3>Full-Stack E-commerce Site</h3>
+                    <p>A functional store with Stripe integration and a custom-built inventory management system.</p>
+                </div>
+                <div class="bento-item">
+                    <h3>AI Image Classifier</h3>
+                    <p>A Python project using TensorFlow to identify different species of birds from user-uploaded photos.</p>
                 </div>
             </section>
 
-            <section id="classes">
-                <h2>Classes</h2>
-                <ul class="class-list">
-                    <li>Data Structures & Algorithms</li>
-                    <li>Web Development</li>
-                    <li>Digital Photography</li>
-                </ul>
+            <section class="content-block">
+                <h2 class="section-heading">Classes Taken</h2>
+                <div class="class-tags">
+                    <span class="tag">Data Structures</span>
+                    <span class="tag">UI/UX Design</span>
+                    <span class="tag">Database Systems</span>
+                    <span class="tag">Operating Systems</span>
+                    <span class="tag">Discrete Math</span>
+                </div>
             </section>
 
-            <div class="photo-cta">
-                <a href="photos.html" class="btn">View My Photography →</a>
-            </div>
+            <footer class="footer-action">
+                <a href="photos.html" class="photo-button">
+                    <span>View My Photography</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </footer>
         </main>
     </div>
 
