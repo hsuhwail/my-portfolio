@@ -8,14 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        :root {
-            --warm-bg: #fdfafb;
-            --sidebar-purple: #3a2456; /* Deepened for better contrast */
-            --soft-purple: #b194d1;
-            --text-dark: #1a151b;
-            --text-light: #5d5061;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -24,176 +16,161 @@
         }
 
         body {
-            background-color: var(--warm-bg);
-            color: var(--text-dark);
+            background-color: #fdfafb;
             display: flex;
             height: 100vh;
             overflow: hidden; 
         }
 
-        /* --- LEFT SIDE: FIXED (Widened for the 400px image) --- */
+        /* --- LEFT SIDE: FIXED (FORCE 550px width) --- */
         .sidebar {
-            width: 500px; 
+            width: 550px; 
             height: 100vh;
-            background: var(--sidebar-purple);
+            background: #3a2456; /* Deep Warm Purple */
             color: white;
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            padding: 60px;
             position: fixed;
             left: 0;
             top: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
+        /* FORCE IMAGE SIZE */
         .portrait {
-            width: 400px;
-            height: 340px;
+            width: 400px !important;
+            height: 340px !important;
             object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            border: 4px solid #b194d1;
+            display: block;
         }
 
         .name-title {
-            font-size: 3.5rem; /* Large Bold Font */
+            font-size: 80px; /* HUGE NAME */
             font-weight: 800;
-            line-height: 1;
-            margin-bottom: 40px;
-            letter-spacing: -2px;
+            line-height: 0.9;
+            margin-bottom: 50px;
+            letter-spacing: -3px;
         }
 
         .currently-section h3 {
-            font-size: 1rem;
+            font-size: 20px;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--soft-purple);
-            margin-bottom: 15px;
+            letter-spacing: 4px;
+            color: #b194d1;
+            margin-bottom: 20px;
         }
 
         .currently-section p {
-            font-size: 1.25rem; /* Larger Text */
-            line-height: 1.6;
-            margin-bottom: 12px;
-            color: #f0f0f0;
+            font-size: 28px; /* BIG STATUS TEXT */
+            line-height: 1.4;
+            margin-bottom: 15px;
         }
 
         .social-icons {
             display: flex;
-            gap: 25px;
-            margin-top: 30px;
+            gap: 40px;
         }
 
         .social-icons a {
             color: white;
-            font-size: 2rem; /* Big Icons */
-            transition: 0.3s;
-        }
-
-        .social-icons a:hover {
-            color: var(--soft-purple);
-            transform: scale(1.1);
+            font-size: 45px; /* HUGE ICONS */
+            text-decoration: none;
         }
 
         /* --- RIGHT SIDE: SCROLLABLE --- */
         .main-content {
-            margin-left: 500px;
+            margin-left: 550px;
             flex: 1;
             height: 100vh;
             overflow-y: auto;
-            padding: 100px 80px;
+            padding: 100px;
         }
 
         section {
-            max-width: 900px;
-            margin-bottom: 120px;
+            margin-bottom: 150px;
         }
 
         .section-tag {
             font-weight: 700;
-            color: var(--soft-purple);
+            color: #b194d1;
             text-transform: uppercase;
-            font-size: 1.1rem;
-            letter-spacing: 2px;
+            font-size: 22px;
+            letter-spacing: 3px;
             display: block;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         h2 {
-            font-size: 2.5rem; /* Larger Section Headers */
-            margin-bottom: 15px;
-            letter-spacing: -1px;
+            font-size: 60px; /* HUGE SECTION HEADERS */
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+            color: #1a151b;
         }
 
         .sub-info {
-            color: var(--text-light);
-            font-size: 1.2rem;
-            margin-bottom: 20px;
+            color: #5d5061;
+            font-size: 26px;
+            margin-bottom: 25px;
             display: block;
             font-weight: 600;
         }
 
         .description {
-            font-size: 1.3rem; /* Larger Body Text */
+            font-size: 28px; /* HUGE BODY TEXT */
             line-height: 1.6;
-            color: var(--text-dark);
-            margin-bottom: 50px;
+            color: #2d232e;
+            margin-bottom: 60px;
         }
 
-        /* Class Grid */
+        /* Class Pill Grid */
         .class-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
             gap: 20px;
         }
 
         .class-pill {
             background: white;
-            padding: 25px;
+            padding: 20px 40px;
             border-radius: 15px;
-            border: 2px solid #eee;
+            border: 3px solid #3a2456;
             font-weight: 700;
-            font-size: 1.1rem;
-            text-align: center;
+            font-size: 24px;
         }
 
         /* Photography Button */
         .photo-btn {
-            background: var(--sidebar-purple);
+            background: #3a2456;
             color: white;
-            padding: 25px 50px;
-            border-radius: 12px;
+            padding: 30px 60px;
+            border-radius: 15px;
             text-decoration: none;
             font-weight: 800;
-            font-size: 1.4rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 15px;
-            transition: 0.3s;
+            font-size: 32px;
+            display: inline-block;
             margin-bottom: 100px;
         }
 
-        .photo-btn:hover {
-            background: var(--soft-purple);
-            transform: translateY(-5px);
-        }
-
         /* Custom Scrollbar */
-        .main-content::-webkit-scrollbar { width: 10px; }
-        .main-content::-webkit-scrollbar-thumb { background: var(--soft-purple); border-radius: 10px; }
+        .main-content::-webkit-scrollbar { width: 15px; }
+        .main-content::-webkit-scrollbar-thumb { background: #b194d1; border-radius: 10px; }
     </style>
 </head>
 <body>
 
     <aside class="sidebar">
         <div>
-            <img src="portrait.jpg" alt="Your Portrait" class="portrait">
-            <h1 class="name-title">Your Name</h1>
+            <img src="portrait.jpg" alt="Portrait" class="portrait">
+            <h1 class="name-title">Your<br>Name</h1>
             
             <div class="currently-section">
                 <h3>Currently</h3>
-                <p><i class="fas fa-university"></i> Senior at University Name</p>
-                <p><i class="fas fa-briefcase"></i> Interning at Company</p>
+                <p><i class="fas fa-university"></i> Senior at University</p>
+                <p><i class="fas fa-briefcase"></i> Intern at Company</p>
             </div>
         </div>
 
@@ -205,36 +182,31 @@
     </aside>
 
     <main class="main-content">
-        <section id="work">
+        <section>
             <span class="section-tag">Experience</span>
-            <div class="work-item">
-                <h2>Work Experience Heading</h2>
-                <span class="sub-info">Company • 2024</span>
-                <p class="description">This text is now much larger and easier to read. You can describe your roles and responsibilities here in detail.</p>
-            </div>
+            <h2>Work History</h2>
+            <span class="sub-info">Lead Developer • 2024</span>
+            <p class="description">This text is now extremely large (28px) to ensure it fills the screen and is easily readable on any monitor.</p>
         </section>
 
-        <section id="projects">
-            <span class="section-tag">Featured Projects</span>
-            <div class="project-item">
-                <h2>Project Title Here</h2>
-                <p class="description">Showcase your best class projects. The warm purple accents and large typography make the work stand out.</p>
-            </div>
+        <section>
+            <span class="section-tag">Academic</span>
+            <h2>Class Projects</h2>
+            <p class="description">Showcasing significant technical accomplishments and collaborative efforts during university.</p>
         </section>
 
-        <section id="classes">
-            <span class="section-tag">Education</span>
-            <h2>Coursework</h2>
+        <section>
+            <span class="section-tag">Courses</span>
+            <h2>Classes Taken</h2>
             <div class="class-grid">
                 <div class="class-pill">Data Structures</div>
-                <div class="class-pill">UI/UX Design</div>
-                <div class="class-pill">Web Systems</div>
-                <div class="class-pill">Machine Learning</div>
+                <div class="class-pill">Algorithms</div>
+                <div class="class-pill">UI Design</div>
             </div>
         </section>
 
         <a href="photos.html" class="photo-btn">
-            View My Photos <i class="fas fa-arrow-right"></i>
+            View Photography →
         </a>
     </main>
 
