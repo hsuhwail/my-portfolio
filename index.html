@@ -16,7 +16,7 @@
         }
 
         body {
-            background-color: #fdfafb;
+            background-color: #fcf9ff; /* Warmer, softer white */
             display: flex;
             height: 100vh;
             overflow: hidden; 
@@ -26,7 +26,7 @@
         .sidebar {
             width: 550px; 
             height: 100vh;
-            background: #3a2456; 
+            background: #7d61a8; /* Warm Amethyst Purple */
             color: white;
             padding: 60px;
             position: fixed;
@@ -34,7 +34,8 @@
             top: 0;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: flex-start; /* Pulls content toward the top */
+            gap: 40px; /* Space between the upper info and the icons */
         }
 
         .portrait {
@@ -51,14 +52,15 @@
             font-size: 80px;
             font-weight: 800;
             line-height: 0.9;
-            margin-bottom: 10px;
             letter-spacing: -3px;
         }
 
         .email-current {
-            font-size: 24px;
-            color: #b194d1;
+            display: block;
+            font-size: 26px;
+            color: #ebdfff; /* Soft light lavender for email */
             font-weight: 400;
+            margin-top: 35px; /* Added breathing room under name */
             margin-bottom: 50px;
         }
 
@@ -66,7 +68,7 @@
             font-size: 20px;
             text-transform: uppercase;
             letter-spacing: 4px;
-            color: #b194d1;
+            color: #ebdfff;
             margin-bottom: 20px;
         }
 
@@ -76,20 +78,23 @@
             margin-bottom: 15px;
         }
 
+        /* BIGGER SOCIAL ICONS */
         .social-icons {
             display: flex;
             gap: 40px;
+            margin-top: 20px; /* Moves icons up toward the content */
         }
 
         .social-icons a {
             color: white;
-            font-size: 45px;
+            font-size: 55px; /* Increased from 45px */
             text-decoration: none;
             transition: 0.3s;
         }
 
         .social-icons a:hover {
-            color: #b194d1;
+            color: #ebdfff;
+            transform: scale(1.1);
         }
 
         /* --- RIGHT SIDE: SCROLLABLE CONTENT --- */
@@ -109,12 +114,12 @@
             font-size: 60px;
             margin-bottom: 60px;
             letter-spacing: -2px;
-            color: #1a151b;
+            color: #312645; /* Dark warm purple-gray */
         }
 
         .section-tag {
             font-weight: 700;
-            color: #b194d1;
+            color: #7d61a8;
             text-transform: uppercase;
             font-size: 28px;
             letter-spacing: 3px;
@@ -132,14 +137,14 @@
             flex: 0 0 180px;
             font-size: 24px;
             font-weight: 700;
-            color: #b194d1;
+            color: #7d61a8;
             padding-top: 10px;
         }
 
         .job-details { flex: 1; }
 
         .job-title {
-            color: #3a2456;
+            color: #5e4385; /* Warm deep purple */
             font-size: 45px;
             display: block;
             font-weight: 800;
@@ -148,7 +153,7 @@
         }
 
         .sub-info {
-            color: #5d5061;
+            color: #726284;
             font-size: 26px;
             margin-bottom: 20px;
             display: block;
@@ -162,7 +167,6 @@
             margin-bottom: 40px;
         }
 
-        /* PILL GRID */
         .class-grid {
             display: flex;
             flex-wrap: wrap;
@@ -173,27 +177,28 @@
             background: white;
             padding: 15px 30px;
             border-radius: 12px;
-            border: 3px solid #3a2456;
+            border: 3px solid #7d61a8; /* Match warm theme */
             font-weight: 700;
             font-size: 22px;
+            color: #5e4385;
         }
 
         /* PHOTO GRID STYLING */
         .preview-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* 2 columns side-by-side */
+            grid-template-columns: 1fr 1fr;
             gap: 25px;
             margin-top: 50px;
             padding-bottom: 100px;
         }
 
         .large-preview-card {
-            height: 500px; /* High-impact bold height */
-            border: 5px solid #3a2456;
+            height: 500px;
+            border: 5px solid #7d61a8;
             border-radius: 25px;
             overflow: hidden;
             background: #eee;
-            box-shadow: 0 15px 30px rgba(58, 36, 86, 0.1);
+            box-shadow: 0 15px 30px rgba(125, 97, 168, 0.1);
         }
 
         .large-preview-card img {
@@ -205,7 +210,7 @@
 
         /* FOOTER BUTTON */
         .photo-btn {
-            background: #3a2456;
+            background: #5e4385;
             color: white;
             padding: 30px 60px;
             border-radius: 15px;
@@ -217,12 +222,11 @@
         }
 
         .photo-btn:hover {
-            background: #b194d1;
+            background: #7d61a8;
             transform: translateY(-5px);
         }
 
-        /* Mobile Responsive Grid */
-        @media (max-width: 1000px) {
+        @media (max-width: 1100px) {
             .preview-grid { grid-template-columns: 1fr; }
         }
 
@@ -268,7 +272,6 @@
                         <div class="class-pill">Wazuh</div>
                         <div class="class-pill">Red Hat Linux</div>
                         <div class="class-pill">ServiceNow</div>
-                        <div class="class-pill">Access Control</div>
                     </div>
                 </div>
             </div>
@@ -279,11 +282,6 @@
                     <span class="job-title">DC Integrated Systems</span>
                     <span class="sub-info">Network Engineer</span>
                     <p class="description">Secured network infrastructure by configuring Cisco firewalls, routers, and switches and mitigating Layer 1 vulnerabilities for customers.</p>
-                    <div class="class-grid">
-                        <div class="class-pill">System Hardening</div>
-                        <div class="class-pill">TCP/IP</div>
-                        <div class="class-pill">Layer 1 Management</div>
-                    </div>
                 </div>
             </div>
 
@@ -292,11 +290,7 @@
                 <div class="job-details">
                     <span class="job-title">CBRE</span>
                     <span class="sub-info">Software Engineer Intern</span>
-                    <p class="description">Spearheaded nationwide upgrade, deploying 408 Crestron schedulers and 70 controllers in 10 weeks, 33% faster than expected.</p>
-                    <div class="class-grid">
-                        <div class="class-pill">Documentation</div>
-                        <div class="class-pill">System Implementation</div>
-                    </div>
+                    <p class="description">Spearheaded nationwide upgrade, deploying 408 Crestron schedulers and 70 controllers in 10 weeks.</p>
                 </div>
             </div>
         </section>
@@ -310,11 +304,6 @@
                     <span class="job-title">Senior Capstone Project</span>
                     <span class="sub-info">The University of Texas @ Dallas</span>
                     <p class="description">Led an 11-member cross-functional team using Agile methodology to deliver a modernized, publicly accessible website redesign.</p>
-                    <div class="class-grid">
-                        <div class="class-pill">Communication</div>
-                        <div class="class-pill">Leadership</div>
-                        <div class="class-pill">UI Design</div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -322,7 +311,6 @@
         <section id="education">
             <span class="section-tag">Education</span>
             <h2>Degrees & Certs</h2>
-            
             <div class="job-entry">
                 <div class="job-time">2025 - 2027</div>
                 <div class="job-details">
@@ -330,27 +318,35 @@
                     <span class="sub-info">MS in Cyber Defense</span>
                 </div>
             </div>
-
-            <div class="job-entry">
-                <div class="job-time">2020 — 2024</div>
-                <div class="job-details">
-                    <span class="job-title">University of Texas at Dallas</span>
-                    <span class="sub-info">BS in Information Technology (Cybersecurity)</span>
-                </div>
-            </div>
-
-            <div class="job-entry">
-                <div class="job-time">CERTS</div>
-                <div class="job-details">
-                    <p class="description">CompTIA Security+ SY0-701<br>CompTIA CySA+</p>
-                </div>
-            </div>
         </section>
 
-        <section id="skills">
-            <span class="section-tag">Knowledge</span>
-            <h2>Classes Taken</h2>
-            <div class="class-grid">
-                <div class="class-pill">Cybersecurity Governance</div>
-                <div class="class-pill">Data Privacy</div>
-                <div class="class
+        <a href="photos.html" class="photo-btn">View Photography →</a>
+        
+        <div id="preview-grid" class="preview-grid"></div>
+
+    </main>
+
+    <script>
+        function loadPreviews() {
+            const container = document.getElementById('preview-grid');
+            const totalPhotos = 11;
+            const count = 4;
+            let picked = [];
+
+            while(picked.length < count) {
+                let r = Math.floor(Math.random() * totalPhotos) + 1;
+                if(!picked.includes(r)) picked.push(r);
+            }
+
+            picked.forEach(num => {
+                container.innerHTML += `
+                    <div class="large-preview-card">
+                        <img src="pics/${num}.jpeg" alt="Random Feature">
+                    </div>`;
+            });
+        }
+        window.onload = loadPreviews;
+    </script>
+
+</body>
+</html>
