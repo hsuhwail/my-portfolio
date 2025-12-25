@@ -60,7 +60,7 @@
             font-size: 26px;
             color: #ebdfff; 
             font-weight: 400;
-            margin-top: 35px; /* Spaced away from name */
+            margin-top: 35px;
             margin-bottom: 40px;
         }
 
@@ -99,7 +99,6 @@
             line-height: 1.2;
         }
 
-        /* BIGGER SOCIAL ICONS */
         .social-icons {
             display: flex;
             gap: 40px;
@@ -188,7 +187,6 @@
             margin-bottom: 40px;
         }
 
-        /* PILL GRID */
         .class-grid {
             display: flex;
             flex-wrap: wrap;
@@ -230,7 +228,6 @@
             display: block;
         }
 
-        /* VIEW PHOTOS BUTTON */
         .photo-btn {
             background: #5e4385;
             color: white;
@@ -248,7 +245,6 @@
             transform: translateY(-5px);
         }
 
-        /* CUSTOM SCROLLBAR */
         .main-content::-webkit-scrollbar { width: 15px; }
         .main-content::-webkit-scrollbar-thumb { background: #b194d1; border-radius: 10px; }
     </style>
@@ -394,7 +390,8 @@
             picked.forEach(num => {
                 const card = document.createElement('div');
                 card.className = 'large-preview-card';
-                card.innerHTML = `<img src="photos.html/${num}.jpeg" alt="Featured Photo">`;
+                // FIXED: Using pics folder and the .jpeg.jpeg extension
+                card.innerHTML = `<img src="pics/${num}.jpeg.jpeg" alt="Featured Photo">`;
                 container.appendChild(card);
             });
         }
