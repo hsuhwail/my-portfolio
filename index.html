@@ -16,19 +16,19 @@
         }
 
         body {
-            background-color: #000000; /* BLACK BACKGROUND */
+            background-color: #1a1a1c; /* DEEP CHARCOAL */
             display: flex;
             height: 100vh;
             overflow: hidden; 
-            color: #ffffff;
+            color: #f4f1ea; /* WARM CREAM TEXT */
         }
 
         /* --- LEFT SIDE: FIXED SIDEBAR --- */
         .sidebar {
             width: 550px; 
             height: 100vh;
-            background: #87CEEB; /* SKY BLUE */
-            color: #000000; /* BLACK TEXT ON BLUE */
+            background: #e27d60; /* VIBRANT TERRACOTTA / BURNT ORANGE */
+            color: #1a1a1c; /* DARK TEXT FOR CONTRAST */
             padding: 60px;
             position: fixed;
             left: 0;
@@ -45,7 +45,7 @@
             object-fit: cover;
             border-radius: 20px;
             margin-bottom: 20px;
-            border: 4px solid #000000; /* BLACK BORDER */
+            border: 4px solid #1a1a1c;
             display: block;
         }
 
@@ -59,7 +59,7 @@
         .email-current {
             display: block;
             font-size: 26px;
-            color: #222; 
+            color: #2b1b17; 
             font-weight: 600;
             margin-top: 35px;
             margin-bottom: 40px;
@@ -69,7 +69,7 @@
             font-size: 24px;
             text-transform: uppercase;
             letter-spacing: 5px;
-            color: #000000;
+            color: #2b1b17;
             margin-bottom: 30px;
         }
 
@@ -88,19 +88,13 @@
             background: white;
             padding: 8px;
             transition: 0.3s ease;
-            border: 2px solid #000;
-        }
-
-        .company-logo:hover {
-            transform: scale(1.15);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
 
         .current-item p {
             font-size: 28px;
             line-height: 1.2;
             font-weight: 600;
-            color: #000;
+            color: #1a1a1c;
         }
 
         .social-icons {
@@ -110,14 +104,14 @@
         }
 
         .social-icons a {
-            color: #000000;
+            color: #1a1a1c;
             font-size: 55px; 
             text-decoration: none;
             transition: 0.3s;
         }
 
         .social-icons a:hover {
-            color: #ffffff;
+            color: #f4f1ea;
             transform: scale(1.1);
         }
 
@@ -128,21 +122,19 @@
             height: 100vh;
             overflow-y: auto;
             padding: 100px;
-            background-color: #000000;
+            background-color: #1a1a1c;
         }
-
-        section { margin-bottom: 150px; }
 
         h2 {
             font-size: 60px;
             margin-bottom: 60px;
             letter-spacing: -2px;
-            color: #87CEEB; /* SKY BLUE TITLES */
+            color: #e27d60; /* VIBRANT ACCENT */
         }
 
         .section-tag {
             font-weight: 700;
-            color: #87CEEB; /* SKY BLUE TAGS */
+            color: #c38d9e; /* SOFT MASCULINE ROSE ACCENT */
             text-transform: uppercase;
             font-size: 28px;
             letter-spacing: 3px;
@@ -160,21 +152,18 @@
             flex: 0 0 180px;
             font-size: 24px;
             font-weight: 700;
-            color: #87CEEB;
+            color: #c38d9e;
         }
 
-        .job-details { flex: 1; }
-
         .job-title {
-            color: #ffffff; 
+            color: #f4f1ea; 
             font-size: 45px;
             font-weight: 800;
             display: block;
-            margin-bottom: 5px;
         }
 
         .sub-info {
-            color: #87CEEB; /* SKY BLUE SUB-INFO */
+            color: #e27d60; 
             font-size: 26px;
             font-weight: 600;
             display: block;
@@ -184,39 +173,33 @@
         .description {
             font-size: 28px;
             line-height: 1.6;
-            color: #cccccc; /* LIGHT GRAY FOR READABILITY */
+            color: #b5b5b5; /* SOFTENED TEXT */
             margin-bottom: 40px;
         }
 
-        .class-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
         .class-pill {
-            background: #000;
+            background: transparent;
             padding: 15px 30px;
             border-radius: 12px;
-            border: 3px solid #87CEEB; /* SKY BLUE BORDER */
+            border: 3px solid #e27d60;
             font-weight: 700;
             font-size: 22px;
-            color: #87CEEB;
+            color: #e27d60;
         }
 
-        /* --- SKY BLUE PHOTO FEATURE BOX --- */
+        /* --- VIBRANT FEATURE BOX --- */
         .photo-feature-box {
-            background: #87CEEB; /* SKY BLUE */
+            background: #e27d60;
             padding: 60px;
             border-radius: 40px;
             margin-top: 50px;
             margin-bottom: 100px;
-            box-shadow: 0 25px 50px rgba(135, 206, 235, 0.2);
+            box-shadow: 0 25px 50px rgba(226, 125, 96, 0.2);
         }
 
         .photo-btn {
-            background: #000000; /* BLACK BUTTON */
-            color: #87CEEB;    /* SKY BLUE TEXT */
+            background: #1a1a1c;
+            color: #e27d60;
             padding: 25px 50px;
             border-radius: 20px;
             text-decoration: none;
@@ -225,27 +208,18 @@
             display: inline-block;
             margin-bottom: 50px;
             transition: 0.3s;
-            border: 2px solid #000;
         }
 
         .photo-btn:hover {
-            background: #222;
-            color: #ffffff;
+            background: #2b1b17;
             transform: translateY(-5px);
-        }
-
-        .preview-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px;
         }
 
         .large-preview-card {
             height: 350px;
-            border: 5px solid #000000; /* BLACK BORDER AROUND IMAGES */
+            border: 5px solid #1a1a1c;
             border-radius: 25px;
             overflow: hidden;
-            background: #111;
             transition: 0.3s;
         }
 
@@ -260,9 +234,7 @@
             display: block;
         }
 
-        /* CUSTOM SCROLLBAR */
-        .main-content::-webkit-scrollbar { width: 15px; }
-        .main-content::-webkit-scrollbar-thumb { background: #87CEEB; border-radius: 10px; }
+        .main-content::-webkit-scrollbar-thumb { background: #e27d60; border-radius: 10px; }
     </style>
 </head>
 <body>
@@ -276,24 +248,20 @@
             <div class="currently-section">
                 <h3>Currently → </h3>
                 <div class="current-item">
-                    <a href="https://dsu.edu/" target="_blank">
-                        <img src="dsu.jpeg" alt="DSU" class="company-logo">
-                    </a>
+                    <img src="dsu.jpeg" alt="DSU" class="company-logo">
                     <p>MS Cyberdefense @ DSU</p>
                 </div>
                 <div class="current-item">
-                    <a href="https://www.l3harris.com/" target="_blank">
-                        <img src="l3harris.jpeg" alt="L3Harris" class="company-logo">
-                    </a>
+                    <img src="l3harris.jpeg" alt="L3Harris" class="company-logo">
                     <p>NOC Analyst @ L3Harris</p>
                 </div>
             </div>
         </div>
 
        <div class="social-icons">
-            <a href="https://www.linkedin.com/in/hamza-suhwail/"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/hsuhwail/"><i class="fab fa-github"></i></a>
-            <a href="https://music.apple.com/us/playlist/hamza/pl.u-zPyLl43uxRGB4r"><i class="fab fa-apple"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-apple"></i></a>
         </div>
     </aside>
 
@@ -301,54 +269,21 @@
         <section id="experience">
             <span class="section-tag">Experience</span>
             <h2>Work History</h2>
-
             <div class="job-entry">
                 <div class="job-time">4/25 — Current</div>
                 <div class="job-details">
                     <span class="job-title">L3Harris Technologies</span>
                     <span class="sub-info">NOC Analyst</span>
-                    <p class="description">Supported 24/7 NOC operations by monitoring network health, analyzing incidents on Red Hat Enterprise Linux, and managing incident workflows in ServiceNow.</p>
-                    <div class="class-grid">
-                        <div class="class-pill">Wazuh</div>
-                        <div class="class-pill">Red Hat Linux</div>
-                        <div class="class-pill">ServiceNow</div>
-                        <div class="class-pill">Access Control</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="job-entry">
-                <div class="job-time">10/23 — 3/24</div>
-                <div class="job-details">
-                    <span class="job-title">DC Integrated Systems</span>
-                    <span class="sub-info">Network Engineer</span>
-                    <p class="description">Secured network infrastructure by configuring Cisco firewalls, routers, and switches and mitigating Layer 1 vulnerabilities for customers.</p>
-                    <div class="class-grid">
-                        <div class="class-pill">System Hardening</div>
-                        <div class="class-pill">TCP/IP</div>
-                        <div class="class-pill">Layer 1 Management</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="education">
-            <span class="section-tag">Education</span>
-            <h2>Degrees & Certs</h2>
-            <div class="job-entry">
-                <div class="job-time">2025 - 2027</div>
-                <div class="job-details">
-                    <span class="job-title">Dakota State University</span>
-                    <span class="sub-info">MS in Cyber Defense</span>
+                    <p class="description">Supported 24/7 NOC operations by monitoring network health and managing incident workflows.</p>
                 </div>
             </div>
         </section>
 
         <div class="photo-feature-box">
             <a href="photos.html" class="photo-btn">View Photography →</a>
-            <div id="preview-grid" class="preview-grid"></div>
+            <div id="preview-grid" class="preview-grid">
+                </div>
         </div>
-
     </main>
 
     <script>
@@ -362,6 +297,9 @@
                 let r = Math.floor(Math.random() * totalPhotos) + 1;
                 if(!picked.includes(r)) picked.push(r);
             }
+            container.style.display = 'grid';
+            container.style.gridTemplateColumns = 'repeat(auto-fit, minmax(200px, 1fr))';
+            container.style.gap = '25px';
             picked.forEach(num => {
                 const card = document.createElement('div');
                 card.className = 'large-preview-card';
