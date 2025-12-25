@@ -26,7 +26,7 @@
         .sidebar {
             width: 550px; 
             height: 100vh;
-            background: #7d61a8; /* Warm Amethyst Purple */
+            background: #7d61a8;
             color: white;
             padding: 60px;
             position: fixed;
@@ -65,9 +65,9 @@
         }
 
         .currently-section h3 {
-            font-size: 24px; /* Increased from 20px */
+            font-size: 24px;
             text-transform: uppercase;
-            letter-spacing: 5px; /* Slightly more space */
+            letter-spacing: 5px;
             color: #ebdfff;
             margin-bottom: 30px;
         }
@@ -75,17 +75,17 @@
         .current-item {
             display: flex;
             align-items: center;
-            gap: 20px; /* More gap between logo and text */
+            gap: 20px;
             margin-bottom: 25px;
         }
 
         .company-logo {
-            width: 65px; /* Increased from 45px */
-            height: 65px; /* Increased from 45px */
+            width: 65px;
+            height: 65px;
             object-fit: contain;
             border-radius: 12px;
             background: white;
-            padding: 8px; /* Slightly more padding for the logo */
+            padding: 8px;
             transition: 0.3s ease;
             border: 2px solid rgba(255, 255, 255, 0.2);
         }
@@ -93,14 +93,14 @@
         .company-logo:hover {
             transform: scale(1.15);
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            border-color: white;
         }
 
         .current-item p {
-            font-size: 28px; /* Increased from 24px */
+            font-size: 28px;
             line-height: 1.2;
-            font-weight: 600; /* Makes the text slightly bolder */
+            font-weight: 600;
         }
+
         .social-icons {
             display: flex;
             gap: 40px;
@@ -128,9 +128,7 @@
             padding: 100px;
         }
 
-        section {
-            margin-bottom: 150px;
-        }
+        section { margin-bottom: 150px; }
 
         h2 {
             font-size: 60px;
@@ -160,7 +158,6 @@
             font-size: 24px;
             font-weight: 700;
             color: #7d61a8;
-            padding-top: 10px;
         }
 
         .job-details { flex: 1; }
@@ -168,18 +165,17 @@
         .job-title {
             color: #5e4385; 
             font-size: 45px;
-            display: block;
             font-weight: 800;
+            display: block;
             margin-bottom: 5px;
-            line-height: 1.1;
         }
 
         .sub-info {
             color: #726284;
             font-size: 26px;
-            margin-bottom: 20px;
-            display: block;
             font-weight: 600;
+            display: block;
+            margin-bottom: 20px;
         }
 
         .description {
@@ -205,22 +201,52 @@
             color: #5e4385;
         }
 
-        /* PHOTO GRID STYLING */
+        /* --- PURPLE PHOTO FEATURE BOX --- */
+        .photo-feature-box {
+            background: #7d61a8;
+            padding: 60px;
+            border-radius: 40px;
+            margin-top: 50px;
+            margin-bottom: 100px;
+            box-shadow: 0 25px 50px rgba(125, 97, 168, 0.25);
+        }
+
+        .photo-btn {
+            background: white;
+            color: #7d61a8;
+            padding: 25px 50px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 32px;
+            display: inline-block;
+            margin-bottom: 50px;
+            transition: 0.3s;
+        }
+
+        .photo-btn:hover {
+            background: #fcf9ff;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
         .preview-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 25px;
-            margin-top: 50px;
-            padding-bottom: 100px;
         }
 
         .large-preview-card {
-            height: 500px;
-            border: 5px solid #7d61a8;
+            height: 350px;
+            border: 5px solid white;
             border-radius: 25px;
             overflow: hidden;
             background: #eee;
-            box-shadow: 0 15px 30px rgba(125, 97, 168, 0.1);
+            transition: 0.3s;
+        }
+
+        .large-preview-card:hover {
+            transform: scale(1.05);
         }
 
         .large-preview-card img {
@@ -230,23 +256,7 @@
             display: block;
         }
 
-        .photo-btn {
-            background: #5e4385;
-            color: white;
-            padding: 30px 60px;
-            border-radius: 15px;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 32px;
-            display: inline-block;
-            transition: 0.3s;
-        }
-
-        .photo-btn:hover {
-            background: #7d61a8;
-            transform: translateY(-5px);
-        }
-
+        /* CUSTOM SCROLLBAR */
         .main-content::-webkit-scrollbar { width: 15px; }
         .main-content::-webkit-scrollbar-thumb { background: #b194d1; border-radius: 10px; }
     </style>
@@ -316,21 +326,11 @@
                     </div>
                 </div>
             </div>
-
-            <div class="job-entry">
-                <div class="job-time">6/23 - 8/23</div>
-                <div class="job-details">
-                    <span class="job-title">CBRE</span>
-                    <span class="sub-info">Software Engineer Intern</span>
-                    <p class="description">Spearheaded nationwide upgrade, deploying 408 Crestron schedulers and 70 controllers in 10 weeks, 33% faster than expected.</p>
-                </div>
-            </div>
         </section>
 
         <section id="education">
             <span class="section-tag">Education</span>
             <h2>Degrees & Certs</h2>
-            
             <div class="job-entry">
                 <div class="job-time">2025 - 2027</div>
                 <div class="job-details">
@@ -338,40 +338,12 @@
                     <span class="sub-info">MS in Cyber Defense</span>
                 </div>
             </div>
-
-            <div class="job-entry">
-                <div class="job-time">2020 — 2024</div>
-                <div class="job-details">
-                    <span class="job-title">University of Texas at Dallas</span>
-                    <span class="sub-info">BS in Information Technology (Cybersecurity)</span>
-                </div>
-            </div>
-
-            <div class="job-entry">
-                <div class="job-time">CERTS</div>
-                <div class="job-details">
-                <span class="sub-info">CompTIA Security+ SY0-701<br>CompTIA CySA+</span>
-                </div>
-            </div>
         </section>
 
-        <section id="skills">
-            <span class="section-tag">Knowledge</span>
-            <h2>Classes Taken</h2>
-            <div class="class-grid">
-                <div class="class-pill">Cybersecurity Governance</div>
-                <div class="class-pill">Data Privacy</div>
-                <div class="class-pill">Managing Security Risks</div>
-                <div class="class-pill">Network Security Monitoring</div>
-                <div class="class-pill">Offensive Security</div>
-                <div class="class-pill">Data Structures</div>
-                <div class="class-pill">Systems Analysis & Design</div>
-            </div>
-        </section>
-
-        <a href="photos.html" class="photo-btn">View Photography →</a>
-        
-        <div id="preview-grid" class="preview-grid"></div>
+        <div class="photo-feature-box">
+            <a href="photos.html" class="photo-btn">View Photography →</a>
+            <div id="preview-grid" class="preview-grid"></div>
+        </div>
 
     </main>
 
@@ -379,26 +351,21 @@
         function loadPreviews() {
             const container = document.getElementById('preview-grid');
             if(!container) return;
-
             const totalPhotos = 11;
             const count = 4;
             let picked = [];
-
             while(picked.length < count) {
                 let r = Math.floor(Math.random() * totalPhotos) + 1;
                 if(!picked.includes(r)) picked.push(r);
             }
-
             picked.forEach(num => {
                 const card = document.createElement('div');
                 card.className = 'large-preview-card';
-                // FIXED: Using pics folder and the .jpeg.jpeg extension
                 card.innerHTML = `<img src="pics/${num}.jpeg.jpeg" alt="Featured Photo">`;
                 container.appendChild(card);
             });
         }
         window.addEventListener('DOMContentLoaded', loadPreviews);
     </script>
-
 </body>
 </html>
