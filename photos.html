@@ -15,44 +15,48 @@
         
         body { 
             background-color: #fcf9ff; 
-            padding: 20px; /* Reduced for mobile comfort */
+            padding: 40px; 
         }
 
-        /* --- HEADER --- */
+        /* --- CENTERED BOLD HEADER --- */
         .gallery-header {
             text-align: center;
-            padding: 60px 20px;
+            padding: 80px 20px 60px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .gallery-header h1 {
-            font-size: clamp(40px, 8vw, 90px); /* Fluid size for mobile/desktop */
+            font-size: 90px;
             font-weight: 800;
             letter-spacing: -4px;
             color: #3a2456;
             text-transform: uppercase;
-            line-height: 0.9;
+            line-height: 0.8;
             margin-bottom: 15px;
         }
 
         .name-subtitle {
-            font-size: clamp(18px, 4vw, 32px);
+            font-size: 32px;
             font-weight: 400;
             color: #7d61a8;
             letter-spacing: 2px;
+        }
+
+        .back-btn-container {
+            margin-top: 35px;
         }
 
         .back-home {
             text-decoration: none;
             color: #7d61a8;
             font-weight: 700;
+            font-size: 18px;
             border: 2px solid #7d61a8;
             padding: 12px 30px;
             border-radius: 50px;
             transition: 0.3s;
             display: inline-block;
-            margin-top: 30px;
         }
 
         .back-home:hover {
@@ -60,45 +64,33 @@
             color: white;
         }
 
-        /* --- THE FIXED MASONRY GRID --- */
+        /* --- FULL PAGE MASONRY (TETRIS STYLE) --- */
         .masonry-container {
-            /* This tells the browser: "Try to make columns 350px wide, 
-               but fit as many as you can." This is more stable than column-count alone. */
-            column-width: 350px; 
+            column-count: 4; /* Spreads across the page */
             column-gap: 20px;
             max-width: 1600px;
-            margin: 20px auto;
-            padding: 0 10px;
+            margin: 40px auto;
         }
 
         .photo-item {
-            display: inline-block; /* Essential for masonry */
+            display: inline-block;
             width: 100%;
             margin-bottom: 20px;
             border-radius: 15px;
             overflow: hidden;
             border: 4px solid #3a2456;
             position: relative;
+            transition: transform 0.3s ease;
             background: #3a2456;
-            
-            /* CRITICAL FIX: Prevents photos from breaking across columns */
-            break-inside: avoid;
-            -webkit-column-break-inside: avoid;
-            
-            /* Animation setup */
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
-        .photo-item.reveal {
-            opacity: 1;
-            transform: translateY(0);
+        .photo-item:hover {
+            transform: scale(1.02);
         }
 
         .photo-item img {
             width: 100%;
-            height: auto;
+            height: auto; /* NO CUTTING - Original proportions */
             display: block;
         }
 
@@ -124,6 +116,19 @@
             color: white;
             font-size: 20px;
             font-weight: 800;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* --- RESPONSIVE STEPS --- */
+        @media (max-width: 1200px) {
+            .masonry-container { column-count: 2; }
+            .gallery-header h1 { font-size: 60px; }
+        }
+        @media (max-width: 600px) {
+            .masonry-container { column-count: 1; }
+            .gallery-header h1 { font-size: 40px; }
+            .name-subtitle { font-size: 22px; }
         }
     </style>
 </head>
@@ -132,45 +137,95 @@
     <header class="gallery-header">
         <h1>Photo Collection</h1>
         <div class="name-subtitle">Hamza Suhwail</div>
-        <a href="index.html" class="back-home">← Back to Portfolio</a>
+        <div class="back-btn-container">
+            <a href="index.html" class="back-home">← Back to Portfolio</a>
+        </div>
     </header>
 
     <main class="masonry-container">
-        <div class="photo-item"><img src="pics/1.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 01</h3></div></div>
-        <div class="photo-item"><img src="pics/2.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 02</h3></div></div>
-        <div class="photo-item"><img src="pics/3.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 03</h3></div></div>
-        <div class="photo-item"><img src="pics/4.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 04</h3></div></div>
-        <div class="photo-item"><img src="pics/5.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 05</h3></div></div>
-        <div class="photo-item"><img src="pics/6.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 06</h3></div></div>
-        <div class="photo-item"><img src="pics/7.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 07</h3></div></div>
-        <div class="photo-item"><img src="pics/8.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 08</h3></div></div>
-        <div class="photo-item"><img src="pics/9.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 09</h3></div></div>
-        <div class="photo-item"><img src="pics/10.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 10</h3></div></div>
-        <div class="photo-item"><img src="pics/11.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 11</h3></div></div>
-        <div class="photo-item"><img src="pics/12.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 12</h3></div></div>
-        <div class="photo-item"><img src="pics/13.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 13</h3></div></div>
-        <div class="photo-item"><img src="pics/14.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 14</h3></div></div>
-        <div class="photo-item"><img src="pics/15.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 15</h3></div></div>
-        <div class="photo-item"><img src="pics/16.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 16</h3></div></div>
-        <div class="photo-item"><img src="pics/17.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 17</h3></div></div>
-        <div class="photo-item"><img src="pics/18.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 18</h3></div></div>
-        <div class="photo-item"><img src="pics/19.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 19</h3></div></div>
-        <div class="photo-item"><img src="pics/20.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 20</h3></div></div>
+        <div class="photo-item">
+            <img src="pics/1.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 01</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/2.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 02</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/3.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 03</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/4.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 04</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/5.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 05</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/6.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 06</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/7.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 07</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/8.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 08</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/9.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 09</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/10.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 10</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/11.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 11</h3></div>
+        </div>
+<div class="photo-item">
+            <img src="pics/12.jpeg.JPG">
+            <div class="photo-overlay"><h3>Visual 11</h3></div>
+        </div>
+
+<div class="photo-item">
+            <img src="pics/13.jpeg.JPG">
+            <div class="photo-overlay"><h3>Visual 11</h3></div>
+        </div>
+<div class="photo-item">
+            <img src="pics/14.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 11</h3></div>
+        </div>
+<div class="photo-item">
+            <img src="pics/15.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 11</h3></div>
+        </div>
+<div class="photo-item">
+            <img src="pics/16.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 11</h3></div>
+        </div>
+<div class="photo-item">
+            <img src="pics/17.jpeg.JPG">
+            <div class="photo-overlay"><h3>Visual 11</h3></div>
+        </div>
+<div class="photo-item">
+            <img src="pics/18.jpeg.JPG">
+            <div class="photo-overlay"><h3>Visual 11</h3></div>
+        </div>
+<div class="photo-item">
+            <img src="pics/19.jpeg.JPG">
+            <div class="photo-overlay"><h3>Visual 11</h3></div>
+        </div>
+<div class="photo-item">
+            <img src="pics/20.jpeg.JPG">
+            <div class="photo-overlay"><h3>Visual 11</h3></div>
+        </div>
     </main>
 
-    <script>
-        // Intersection Observer for Smooth Fade-In
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('reveal');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.photo-item').forEach(item => {
-            observer.observe(item);
-        });
-    </script>
 </body>
 </html>
+
