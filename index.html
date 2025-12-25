@@ -181,6 +181,28 @@
             font-size: 22px;
         }
 
+        /* --- PHOTO PREVIEW SECTION --- */
+        .preview-container {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .preview-card {
+            width: 180px;
+            height: 180px;
+            border: 4px solid #3a2456;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #eee;
+        }
+
+        .preview-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         /* FOOTER BUTTON */
         .photo-btn {
             background: #3a2456;
@@ -339,8 +361,34 @@
             </div>
         </section>
 
+        <div id="preview-area" class="preview-container"></div>
+
         <a href="photos.html" class="photo-btn">View Photography →</a>
     </main>
+
+    <script>
+        function loadPreviews() {
+            const container = document.getElementById('preview-area');
+            const total = 11; // You have 1 through 11
+            const count = 3;  // Show 3 at a time
+            let picked = [];
+
+            while(picked.length < count) {
+                let r = Math.floor(Math.random() * total) + 1;
+                if(!picked.includes(r)) picked.push(r);
+            }
+
+            picked.forEach(num => {
+                container.innerHTML += `
+                    <div class="preview-card">
+                        <img src="pics/${num}.jpeg" alt="Random Preview">
+                    </div>`;
+            });
+        }
+
+        // Run this when the page loads
+        window.onload = loadPreviews;
+    </script>
 
 </body>
 </html>
