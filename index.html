@@ -347,25 +347,29 @@
 
     </main>
 
-    <script>
-        function loadPreviews() {
-            const container = document.getElementById('preview-grid');
-            if(!container) return;
-            const totalPhotos = 11;
-            const count = 4;
-            let picked = [];
-            while(picked.length < count) {
-                let r = Math.floor(Math.random() * totalPhotos) + 1;
-                if(!picked.includes(r)) picked.push(r);
-            }
-            picked.forEach(num => {
-                const card = document.createElement('div');
-                card.className = 'large-preview-card';
-                card.innerHTML = `<img src="pics/${num}.jpeg.jpeg" alt="Featured Photo">`;
-                container.appendChild(card);
-            });
+   <script>
+    function loadPreviews() {
+        const container = document.getElementById('preview-grid');
+        if(!container) return;
+        
+        const totalPhotos = 20; // CHANGE THIS FROM 11 TO 20
+        const count = 4;
+        let picked = [];
+        
+        while(picked.length < count) {
+            let r = Math.floor(Math.random() * totalPhotos) + 1;
+            if(!picked.includes(r)) picked.push(r);
         }
-        window.addEventListener('DOMContentLoaded', loadPreviews);
-    </script>
+        
+        picked.forEach(num => {
+            const card = document.createElement('div');
+            card.className = 'large-preview-card';
+            // Keeping your specific double extension .jpeg.jpeg
+            card.innerHTML = `<img src="pics/${num}.jpeg.jpeg" alt="Featured Photo">`;
+            container.appendChild(card);
+        });
+    }
+    window.addEventListener('DOMContentLoaded', loadPreviews);
+</script>
 </body>
 </html>
