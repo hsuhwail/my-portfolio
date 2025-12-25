@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography | Hamza Suhwail</title>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Instrument Sans', sans-serif; }
+        body { background-color: #fdfafb; color: #1a151b; padding: 60px; }
+
+        .gallery-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .gallery-header h1 {
+            font-size: 70px;
+            font-weight: 800;
+            letter-spacing: -3px;
+            color: #3a2456;
+        }
+
+        .back-home {
+            font-size: 24px;
+            font-weight: 700;
+            text-decoration: none;
+            color: #3a2456;
+            border: 3px solid #3a2456;
+            padding: 15px 30px;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .back-home:hover { background: #3a2456; color: white; }
+
+        /* --- THE MASONRY GRID --- */
+        .photo-container {
+            columns: 2;
+            column-gap: 30px;
+        }
+
+        @media (max-width: 1000px) { .photo-container { columns: 1; } }
+
+        .photo-item {
+            break-inside: avoid;
+            margin-bottom: 30px;
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            border: 4px solid #3a2456;
+            transition: transform 0.3s ease;
+        }
+
+        .photo-item:hover {
+            transform: scale(1.02);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .photo-caption {
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #3a2456;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="gallery-header">
+        <h1>Gallery</h1>
+        <a href="index.html" class="back-home">← Back to Portfolio</a>
+    </header>
+
+    <main class="photo-container">
+        
+        <div class="photo-item"><img src="1.jpeg" alt="Shot 1"><div class="photo-caption">Shot 01</div></div>
+        <div class="photo-item"><img src="2.jpeg" alt="Shot 2"><div class="photo-caption">Shot 02</div></div>
+        <div class="photo-item"><img src="3.jpeg" alt="Shot 3"><div class="photo-caption">Shot 03</div></div>
+        <div class="photo-item"><img src="4.jpeg" alt="Shot 4"><div class="photo-caption">Shot 04</div></div>
+        <div class="photo-item"><img src="5.jpeg" alt="Shot 5"><div class="photo-caption">Shot 05</div></div>
+        <div class="photo-item"><img src="6.jpeg" alt="Shot 6"><div class="photo-caption">Shot 06</div></div>
+        <div class="photo-item"><img src="7.jpeg" alt="Shot 7"><div class="photo-caption">Shot 07</div></div>
+        <div class="photo-item"><img src="8.jpeg" alt="Shot 8"><div class="photo-caption">Shot 08</div></div>
+        <div class="photo-item"><img src="9.jpeg" alt="Shot 9"><div class="photo-caption">Shot 09</div></div>
+        <div class="photo-item"><img src="10.jpeg" alt="Shot 10"><div class="photo-caption">Shot 10</div></div>
+        <div class="photo-item"><img src="11.jpeg" alt="Shot 11"><div class="photo-caption">Shot 11</div></div>
+
+    </main>
+
+</body>
+</html>
