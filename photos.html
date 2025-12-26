@@ -3,108 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photo Collection | Hamza Suhwail</title>
+    <title>Gallery | Hamza Suhwail</title>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Instrument Sans', sans-serif; }
-        body { background-color: #fcf9ff; padding: 20px; }
 
-        .gallery-header { text-align: center; padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
-        .gallery-header h1 { font-size: clamp(40px, 8vw, 90px); font-weight: 800; letter-spacing: -4px; color: #3a2456; text-transform: uppercase; line-height: 0.9; margin-bottom: 15px; }
-        .name-subtitle { font-size: clamp(18px, 4vw, 32px); font-weight: 400; color: #7d61a8; letter-spacing: 2px; }
-        .back-home { text-decoration: none; color: #7d61a8; font-weight: 700; border: 2px solid #7d61a8; padding: 12px 30px; border-radius: 50px; transition: 0.3s; display: inline-block; margin-top: 30px; }
-        .back-home:hover { background: #7d61a8; color: white; }
-
-        /* --- THE MASONRY FIX --- */
-        .masonry-container { 
-            column-width: 350px; 
-            column-gap: 20px; 
-            max-width: 1600px; 
-            margin: 20px auto; 
-            padding: 0 10px;
+        body {
+            background-color: #fcf9ff;
+            color: #312645;
+            padding: 0 5%; /* This creates the "borders" on both sides */
         }
 
-        .photo-item {
-            display: inline-block; 
-            width: 100%; 
-            margin-bottom: 20px; 
-            border-radius: 15px; 
-            overflow: hidden; 
-            border: 4px solid #3a2456; 
-            position: relative; 
-            background: #f3f0f7; /* Light grey placeholder color */
-            
-            /* FIX 1: Provide a minimum height so they aren't slivers while loading */
-            min-height: 200px; 
-            
-            break-inside: avoid; 
-            -webkit-column-break-inside: avoid;
-            
-            /* Animation */
-            opacity: 0; 
-            transform: translateY(20px); 
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        /* --- NAVIGATION --- */
+        nav {
+            padding: 40px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        /* This class is added via JS once the image actually LOADS */
-        .photo-item.loaded {
-            opacity: 1;
-            transform: translateY(0);
+        .back-btn {
+            text-decoration: none;
+            color: #7d61a8;
+            font-weight: 700;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
         }
 
-        .photo-item img { 
-            width: 100%; 
-            height: auto; 
-            display: block; 
+        .back-btn:hover { transform: translateX(-5px); }
+
+        h1 {
+            font-size: 50px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            color: #7d61a8;
         }
 
-        .photo-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(58, 36, 86, 0.7); display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.3s; }
-        .photo-item:hover .photo-overlay { opacity: 1; }
-        .photo-overlay h3 { color: white; font-size: 20px; font-weight: 800; }
+        /* --- FULL WIDTH GRID --- */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            padding-bottom: 100px;
+        }
+
+        .photo-card {
+            height: 450px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #eee;
+            cursor: pointer;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+        }
+
+        .photo-card:hover {
+            transform: scale(1.02);
+            border-color: #b194d1;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- LIGHTBOX (BIG VIEW) --- */
+        #lightbox {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(49, 38, 69, 0.95); /* Deep purple transparent background */
+            display: none; /* Hidden by default */
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            cursor: zoom-out;
+        }
+
+        #lightbox img {
+            max-width: 90%;
+            max-height: 85%;
+            border-radius: 10px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: white;
+            font-size: 50px;
+            cursor: pointer;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .gallery-container { grid-template-columns: 1fr; }
+            h1 { font-size: 32px; }
+        }
     </style>
 </head>
 <body>
 
-    <header class="gallery-header">
-        <h1>Photo Collection</h1>
-        <div class="name-subtitle">Hamza Suhwail</div>
-        <a href="index.html" class="back-home">← Back to Portfolio</a>
-    </header>
+    <nav>
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+        <h1>Photography</h1>
+        <div style="width: 150px;"></div> </nav>
 
-    <main class="masonry-container">
-        <div class="photo-item"><img src="pics/1.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 01</h3></div></div>
-        <div class="photo-item"><img src="pics/2.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 02</h3></div></div>
-        <div class="photo-item"><img src="pics/3.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 03</h3></div></div>
-        <div class="photo-item"><img src="pics/4.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 04</h3></div></div>
-        <div class="photo-item"><img src="pics/5.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 05</h3></div></div>
-        <div class="photo-item"><img src="pics/6.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 06</h3></div></div>
-        <div class="photo-item"><img src="pics/7.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 07</h3></div></div>
-        <div class="photo-item"><img src="pics/8.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 08</h3></div></div>
-        <div class="photo-item"><img src="pics/9.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 09</h3></div></div>
-        <div class="photo-item"><img src="pics/10.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 10</h3></div></div>
-        <div class="photo-item"><img src="pics/11.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 11</h3></div></div>
-        <div class="photo-item"><img src="pics/12.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 12</h3></div></div>
-        <div class="photo-item"><img src="pics/13.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 13</h3></div></div>
-        <div class="photo-item"><img src="pics/14.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 14</h3></div></div>
-        <div class="photo-item"><img src="pics/15.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 15</h3></div></div>
-        <div class="photo-item"><img src="pics/16.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 16</h3></div></div>
-        <div class="photo-item"><img src="pics/17.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 17</h3></div></div>
-        <div class="photo-item"><img src="pics/18.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 18</h3></div></div>
-        <div class="photo-item"><img src="pics/19.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 19</h3></div></div>
-        <div class="photo-item"><img src="pics/20.jpeg.jpeg"><div class="photo-overlay"><h3>Visual 20</h3></div></div>
-    </main>
+    <div class="gallery-container" id="gallery">
+        </div>
+
+    <div id="lightbox" onclick="closeLightbox()">
+        <span class="close-lightbox">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged View">
+    </div>
 
     <script>
-        // FIX 2: Wait for images to load before showing them
-        // This prevents the "slivers" look.
-        document.querySelectorAll('.photo-item img').forEach(img => {
-            if (img.complete) {
-                img.parentElement.classList.add('loaded');
-            } else {
-                img.addEventListener('load', () => {
-                    img.parentElement.classList.add('loaded');
-                });
-            }
+        const totalPhotos = 20; // Set this to your total number of photos
+        const gallery = document.getElementById('gallery');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        // Generate the gallery grid
+        for (let i = 1; i <= totalPhotos; i++) {
+            const card = document.createElement('div');
+            card.className = 'photo-card';
+            // Assuming your naming convention is 1.jpeg.jpeg, 2.jpeg.jpeg, etc.
+            const imgSrc = `pics/${i}.jpeg.jpeg`;
+            
+            card.innerHTML = `<img src="${imgSrc}" alt="Hamza Suhwail Photography" loading="lazy">`;
+            
+            // Open Lightbox on click
+            card.onclick = () => {
+                lightboxImg.src = imgSrc;
+                lightbox.style.display = 'flex';
+                document.body.style.overflow = 'hidden'; // Stop scrolling when viewing photo
+            };
+            
+            gallery.appendChild(card);
+        }
+
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Close on 'Escape' key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "Escape") closeLightbox();
         });
     </script>
 </body>
