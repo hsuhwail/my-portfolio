@@ -13,10 +13,9 @@
         body {
             background-color: #fcf9ff;
             color: #312645;
-            padding: 0 5%; /* Side borders */
+            padding: 0 5%; 
         }
 
-        /* --- NAVIGATION --- */
         nav {
             padding: 60px 0;
             display: flex;
@@ -35,8 +34,6 @@
             transition: 0.3s;
         }
 
-        .back-btn:hover { transform: translateX(-8px); }
-
         h1 {
             font-size: 55px;
             font-weight: 800;
@@ -44,40 +41,37 @@
             color: #7d61a8;
         }
 
-        /* --- TETRIS GRID LAYOUT --- */
+        /* --- BIGGER TETRIS GRID --- */
         .gallery-container {
             display: grid;
-            /* Creates 4 flexible columns */
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            /* 'dense' is the magic word that fills in gaps automatically */
+            /* Reduced columns to 3 for a much larger look */
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
             grid-auto-flow: dense; 
-            grid-auto-rows: 250px; 
-            gap: 20px;
+            grid-auto-rows: 350px; /* Increased row height from 250px to 350px */
+            gap: 25px;
             padding-bottom: 100px;
         }
 
         .photo-card {
             position: relative;
-            border-radius: 25px;
+            border-radius: 30px; /* Curvier corners for a premium feel */
             overflow: hidden;
             background: #eee;
             cursor: pointer;
-            transition: transform 0.3s ease;
-            border: 4px solid transparent;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border: 5px solid transparent;
         }
 
-        /* Logic for Tetris Variations */
-        /* Large Square */
+        /* Tetris Sizing */
         .photo-card.large { grid-column: span 2; grid-row: span 2; }
-        /* Tall Rectangle */
         .photo-card.tall { grid-row: span 2; }
-        /* Wide Rectangle */
         .photo-card.wide { grid-column: span 2; }
 
         .photo-card:hover {
-            transform: scale(1.02);
+            transform: translateY(-5px) scale(1.01);
             border-color: #b194d1;
             z-index: 10;
+            box-shadow: 0 20px 40px rgba(125, 97, 168, 0.2);
         }
 
         .photo-card img {
@@ -87,12 +81,12 @@
             display: block;
         }
 
-        /* --- LIGHTBOX (ZOOM VIEW) --- */
+        /* --- LIGHTBOX --- */
         #lightbox {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: rgba(30, 20, 50, 0.96);
+            background: rgba(30, 20, 50, 0.98);
             display: none;
             justify-content: center;
             align-items: center;
@@ -101,32 +95,24 @@
         }
 
         #lightbox img {
-            max-width: 90%;
-            max-height: 85%;
-            border-radius: 15px;
-            box-shadow: 0 0 50px rgba(0,0,0,0.5);
-            animation: zoomIn 0.3s ease-out;
+            max-width: 95%;
+            max-height: 90%;
+            border-radius: 10px;
+            animation: zoomIn 0.3s ease;
         }
 
         @keyframes zoomIn {
-            from { transform: scale(0.8); opacity: 0; }
+            from { transform: scale(0.9); opacity: 0; }
             to { transform: scale(1); opacity: 1; }
         }
 
-        .close-btn {
-            position: absolute;
-            top: 30px;
-            right: 40px;
-            color: white;
-            font-size: 50px;
-            font-weight: 200;
-        }
-
-        /* Mobile Adjustments */
-        @media (max-width: 800px) {
-            .gallery-container { grid-template-columns: 1fr; grid-auto-rows: 400px; }
+        /* Mobile Fixes */
+        @media (max-width: 900px) {
+            .gallery-container { 
+                grid-template-columns: 1fr; 
+                grid-auto-rows: 450px; 
+            }
             .photo-card.large, .photo-card.wide { grid-column: span 1; }
-            h1 { font-size: 38px; }
         }
     </style>
 </head>
@@ -138,11 +124,9 @@
         <div style="width: 80px;"></div> 
     </nav>
 
-    <div class="gallery-container" id="gallery">
-        </div>
+    <div class="gallery-container" id="gallery"></div>
 
     <div id="lightbox" onclick="this.style.display='none'; document.body.style.overflow='auto';">
-        <span class="close-btn">&times;</span>
         <img id="lightbox-img" src="">
     </div>
 
@@ -152,20 +136,17 @@
         const lb = document.getElementById('lightbox');
         const lbImg = document.getElementById('lightbox-img');
 
-        // Available Tetris styles
+        // Styles for the Tetris look
         const styles = ['standard', 'tall', 'wide', 'large', 'standard'];
 
         for (let i = 1; i <= totalPhotos; i++) {
             const card = document.createElement('div');
-            
-            // Randomly assign a tetris shape
             const randomStyle = styles[Math.floor(Math.random() * styles.length)];
             card.className = `photo-card ${randomStyle}`;
             
             const imgSrc = `pics/${i}.jpeg.jpeg`;
             card.innerHTML = `<img src="${imgSrc}" loading="lazy">`;
 
-            // Click to enlarge
             card.onclick = () => {
                 lbImg.src = imgSrc;
                 lb.style.display = 'flex';
@@ -175,7 +156,6 @@
             gallery.appendChild(card);
         }
 
-        // Close on Esc key
         document.addEventListener('keydown', e => {
             if(e.key === 'Escape') {
                 lb.style.display = 'none';
