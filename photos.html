@@ -3,174 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photography | Hamza Suhwail</title>
+    <title>Photo Collection | Hamza Suhwail</title>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Instrument Sans', sans-serif; }
-
-        body {
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Instrument Sans', sans-serif; 
+        }
+        
+        body { 
             background-color: #fcf9ff; 
-            display: flex;
-            min-height: 100vh;
-            overflow-x: hidden; 
+            padding: 40px; 
         }
 
-        /* --- LEFT SIDE: FIXED SIDEBAR (Matches Index Exactly) --- */
-        .sidebar {
-            width: 550px; 
-            height: 100vh;
+        /* --- CENTERED BOLD HEADER --- */
+        .gallery-header {
+            text-align: center;
+            padding: 80px 20px 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-header h1 {
+            font-size: 90px;
+            font-weight: 800;
+            letter-spacing: -4px;
+            color: #3a2456;
+            text-transform: uppercase;
+            line-height: 0.8;
+            margin-bottom: 15px;
+        }
+
+        .name-subtitle {
+            font-size: 32px;
+            font-weight: 400;
+            color: #7d61a8;
+            letter-spacing: 2px;
+        }
+
+        .back-btn-container {
+            margin-top: 35px;
+        }
+
+        .back-home {
+            text-decoration: none;
+            color: #7d61a8;
+            font-weight: 700;
+            font-size: 18px;
+            border: 2px solid #7d61a8;
+            padding: 12px 30px;
+            border-radius: 50px;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .back-home:hover {
             background: #7d61a8;
             color: white;
-            padding: 60px;
-            position: fixed;
-            left: 0;
-            top: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start; 
-            z-index: 100;
         }
 
-        .portrait {
-            width: 400px !important;
-            height: 340px !important;
-            object-fit: cover;
-            border-radius: 20px;
-            margin-bottom: 30px;
-            border: 4px solid #b194d1;
-            display: block;
+        /* --- FULL PAGE MASONRY (TETRIS STYLE) --- */
+        .masonry-container {
+            column-count: 4; /* Spreads across the page */
+            column-gap: 20px;
+            max-width: 1600px;
+            margin: 40px auto;
         }
 
-        .name-title { font-size: 80px; font-weight: 800; line-height: 0.9; letter-spacing: -3px; }
-        
-        .sidebar-nav {
-            margin-top: 45px;
-            margin-bottom: 40px;
-            border-top: 1px solid rgba(235, 223, 255, 0.2);
-            padding-top: 30px;
-        }
-
-        .sidebar-nav a {
-            display: block;
-            color: white;
-            text-decoration: none;
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            transition: 0.3s;
-        }
-
-        .sidebar-nav a:hover { color: #ebdfff; transform: translateX(10px); }
-
-        .social-icons { 
-            display: flex; 
-            gap: 40px; 
-            margin-top: auto; 
-            padding-bottom: 40px; 
-        }
-        .social-icons a { color: white; font-size: 55px; text-decoration: none; transition: 0.3s; }
-        .social-icons a:hover { color: #ebdfff; transform: scale(1.1); }
-
-        /* --- RIGHT SIDE: SCROLLABLE GALLERY --- */
-        .main-content {
-            margin-left: 550px;
-            flex: 1;
-            padding: 100px;
-            min-height: 100vh;
-        }
-
-        h2 { font-size: 60px; margin-bottom: 15px; letter-spacing: -2px; color: #312645; }
-        
-        .quote { 
-            font-size: 28px; 
-            color: #7d61a8; 
-            font-weight: 600; 
-            margin-bottom: 60px; 
-            line-height: 1.4;
-            max-width: 800px;
-        }
-
-        .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-            gap: 30px;
-        }
-
-        .photo-card {
-            background: white;
-            border-radius: 30px;
+        .photo-item {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 20px;
+            border-radius: 15px;
             overflow: hidden;
-            border: 6px solid white;
-            box-shadow: 0 15px 45px rgba(0,0,0,0.05);
+            border: 4px solid #3a2456;
+            position: relative;
             transition: transform 0.3s ease;
+            background: #3a2456;
         }
 
-        .photo-card:hover { transform: translateY(-10px); }
-        .photo-card img { width: 100%; height: 500px; object-fit: cover; display: block; }
-
-        /* --- THE MACBOOK 13" FIX (Vertical Height Adjustment) --- */
-        @media (min-width: 1201px) and (max-height: 900px) {
-            .sidebar { padding: 30px 60px; }
-            .portrait { width: 300px !important; height: 250px !important; margin-bottom: 20px; }
-            .name-title { font-size: 60px; }
-            .sidebar-nav { margin-top: 25px; padding-top: 20px; }
+        .photo-item:hover {
+            transform: scale(1.02);
         }
 
-        /* --- RESPONSIVE MOBILE --- */
+        .photo-item img {
+            width: 100%;
+            height: auto; /* NO CUTTING - Original proportions */
+            display: block;
+        }
+
+        .photo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(58, 36, 86, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .photo-item:hover .photo-overlay {
+            opacity: 1;
+        }
+
+        .photo-overlay h3 {
+            color: white;
+            font-size: 20px;
+            font-weight: 800;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* --- RESPONSIVE STEPS --- */
         @media (max-width: 1200px) {
-            body { flex-direction: column; overflow-y: auto; }
-            .sidebar { width: 100%; height: auto; position: relative; padding: 40px 20px; align-items: center; text-align: center; }
-            .portrait { width: 280px !important; height: 260px !important; margin: 0 auto 20px auto; }
-            .name-title { font-size: 55px; }
-            .main-content { margin-left: 0; padding: 60px 25px; width: 100%; }
-            .photo-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
-            .social-icons { justify-content: center; margin-top: 30px; }
+            .masonry-container { column-count: 2; }
+            .gallery-header h1 { font-size: 60px; }
+        }
+        @media (max-width: 600px) {
+            .masonry-container { column-count: 1; }
+            .gallery-header h1 { font-size: 40px; }
+            .name-subtitle { font-size: 22px; }
         }
     </style>
 </head>
 <body>
 
-    <aside class="sidebar">
-        <div>
-            <img src="portrait.jpg" alt="Portrait" class="portrait">
-            <h1 class="name-title">Hamza<br>Suhwail</h1>
-            
-            <nav class="sidebar-nav">
-                <a href="index.html">← Back to Portfolio</a>
-            </nav>
+    <header class="gallery-header">
+        <h1>Photo Collection</h1>
+        <div class="name-subtitle">Hamza Suhwail</div>
+        <div class="back-btn-container">
+            <a href="index.html" class="back-home">← Back to Portfolio</a>
+        </div>
+    </header>
+
+    <main class="masonry-container">
+        <div class="photo-item">
+            <img src="pics/1.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 01</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/2.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 02</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/3.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 03</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/4.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 04</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/5.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 05</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/6.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 06</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/7.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 07</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/8.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 08</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/9.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 09</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/10.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 10</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/11.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 11</h3></div>
+        </div>
+<div class="photo-item">
+            <img src="pics/12.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 11</h3></div>
         </div>
 
-       <div class="social-icons">
-            <a href="https://www.linkedin.com/in/hamza-suhwail/"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/hsuhwail/"><i class="fab fa-github"></i></a>
-            <a href="https://music.apple.com/us/playlist/hamza/pl.u-zPyLl43uxRGB4r"><i class="fab fa-apple"></i></a>
+<div class="photo-item">
+            <img src="pics/13.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 11</h3></div>
         </div>
-    </aside>
-
-    <main class="main-content">
-        <h2>Photo Gallery</h2>
-        <p class="quote">Exploring new places, cultures, and perspectives, one trip at a time.</p>
-
-        <div id="photo-grid" class="photo-grid">
-            </div>
+<div class="photo-item">
+            <img src="pics/14.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 11</h3></div>
+        </div>
+<div class="photo-item">
+            <img src="pics/15.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 11</h3></div>
+        </div>
+<div class="photo-item">
+            <img src="pics/16.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 11</h3></div>
+        </div>
+<div class="photo-item">
+            <img src="pics/17.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 11</h3></div>
+        </div>
+<div class="photo-item">
+            <img src="pics/18.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 11</h3></div>
+        </div>
+<div class="photo-item">
+            <img src="pics/19.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 11</h3></div>
+        </div>
+<div class="photo-item">
+            <img src="pics/20.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 11</h3></div>
+        </div>
     </main>
 
-    <script>
-        function loadGallery() {
-            const container = document.getElementById('photo-grid');
-            const totalPhotos = 20; // Adjust this number based on your actual photo count
-
-            for (let i = 1; i <= totalPhotos; i++) {
-                const card = document.createElement('div');
-                card.className = 'photo-card';
-                // Using your specific naming convention: pics/1.jpeg.jpeg
-                card.innerHTML = `<img src="pics/${i}.jpeg.jpeg" alt="Travel Photo ${i}" loading="lazy">`;
-                container.appendChild(card);
-            }
-        }
-        window.addEventListener('DOMContentLoaded', loadGallery);
-    </script>
 </body>
 </html>
+
