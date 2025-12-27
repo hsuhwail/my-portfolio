@@ -11,9 +11,9 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Instrument Sans', sans-serif; }
         body { background-color: #fcf9ff; display: flex; min-height: 100vh; }
 
-        /* --- SIDEBAR (Expanded Fonts) --- */
+        /* --- SIDEBAR (Original Bold Style) --- */
         .sidebar {
-            width: 650px; /* Widened for massive text */
+            width: 650px; 
             height: 100vh; 
             background: #7d61a8; 
             color: white; 
@@ -42,18 +42,44 @@
 
         .social-icons { display: flex; gap: 50px; margin-top: auto; padding-bottom: 20px; }
         .social-icons a { color: white; font-size: 70px; text-decoration: none; transition: 0.3s; }
-        .social-icons a:hover { transform: scale(1.1); color: #ebdfff; }
 
-        /* --- MAIN CONTENT (Expanded Fonts) --- */
-        .main-content { margin-left: 650px; flex: 1; padding: 120px; }
-        h2 { font-size: 90px; margin-bottom: 15px; color: #312645; letter-spacing: -4px; line-height: 0.9; }
-        .quote { font-size: 38px; color: #7d61a8; font-weight: 600; margin-bottom: 80px; line-height: 1.3; }
+        /* --- MAIN CONTENT (Now Centered) --- */
+        .main-content { 
+            margin-left: 650px; 
+            flex: 1; 
+            padding: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centers children horizontally */
+        }
+
+        .header-container {
+            text-align: center; /* Centers the text lines */
+            max-width: 1000px;
+            margin-bottom: 80px;
+        }
+
+        h2 { 
+            font-size: 90px; 
+            margin-bottom: 15px; 
+            color: #312645; 
+            letter-spacing: -4px; 
+            line-height: 0.9; 
+        }
+        
+        .quote { 
+            font-size: 38px; 
+            color: #7d61a8; 
+            font-weight: 600; 
+            line-height: 1.3; 
+        }
 
         /* --- TETRIS (MASONRY) LAYOUT --- */
         .photo-column-grid {
             column-count: 3;
             column-gap: 25px;
             width: 100%;
+            max-width: 1400px; /* Keeps grid from becoming too wide */
         }
 
         .photo-card {
@@ -74,28 +100,28 @@
         .photo-card img { width: 100%; height: auto; display: block; transition: 0.5s ease; }
         .photo-card:hover img { transform: scale(1.08); }
 
-        /* --- LIGHTBOX STYLE --- */
+        /* --- LIGHTBOX --- */
         .lightbox {
             display: none; position: fixed; z-index: 1000; top: 0; left: 0;
             width: 100%; height: 100%; background: rgba(0,0,0,0.95);
             justify-content: center; align-items: center; cursor: zoom-out;
         }
-        .lightbox img { max-width: 90%; max-height: 90%; border-radius: 15px; box-shadow: 0 0 60px rgba(0,0,0,0.7); }
+        .lightbox img { max-width: 90%; max-height: 90%; border-radius: 15px; }
 
-        /* --- RESPONSIVE ADJUSTMENTS --- */
+        /* --- RESPONSIVE --- */
         @media (max-width: 1600px) { 
             .photo-column-grid { column-count: 2; }
             .sidebar { width: 500px; padding: 40px; }
             .main-content { margin-left: 500px; padding: 80px 60px; }
             .name-title { font-size: 75px; }
+            h2 { font-size: 70px; }
+            .quote { font-size: 30px; }
         }
         
         @media (max-width: 1200px) {
             body { flex-direction: column; }
             .sidebar { width: 100%; height: auto; position: relative; padding: 60px; align-items: center; text-align: center; }
-            .portrait { width: 350px; height: 320px; }
             .main-content { margin-left: 0; padding: 60px 30px; }
-            .photo-column-grid { column-count: 2; }
             .sidebar-nav { display: none; }
         }
     </style>
@@ -120,28 +146,27 @@
     </aside>
 
     <main class="main-content">
-        <h2>Photo Gallery</h2>
-        <p class="quote">Exploring new places, cultures, and perspectives, one trip at a time.</p>
+        <div class="header-container">
+            <h2>Photo Gallery</h2>
+            <p class="quote">Exploring new places, cultures, and perspectives, one trip at a time.</p>
+        </div>
         <div id="tetris-grid" class="photo-column-grid"></div>
     </main>
 
     <script>
         function loadGallery() {
             const container = document.getElementById('tetris-grid');
-            const totalPhotos = 50; // Ensuring exactly 50 photos load
+            const totalPhotos = 50; 
 
             for (let i = 1; i <= totalPhotos; i++) {
                 const card = document.createElement('div');
                 card.className = 'photo-card';
-                
-                // Matches file: pics/1.jpeg.jpeg
                 const imgSrc = `pics/${i}.jpeg.jpeg`;
                 
                 card.onclick = () => openLightbox(imgSrc);
                 card.innerHTML = `<img src="${imgSrc}" loading="lazy">`;
                 container.appendChild(card);
 
-                // Sequential reveal effect
                 setTimeout(() => { 
                     card.classList.add('reveal'); 
                 }, i * 40); 
