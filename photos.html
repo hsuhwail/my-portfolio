@@ -13,85 +13,83 @@
         body {
             background-color: #fcf9ff;
             color: #312645;
-            padding: 80px 40px;
+            padding: 60px;
         }
 
-        /* Massive Header */
+        /* Clean, Large Header */
         header {
-            max-width: 1600px;
-            margin: 0 auto 80px auto;
+            max-width: 1400px;
+            margin: 0 auto 60px auto;
             display: flex;
             justify-content: space-between;
-            align-items: flex-end;
+            align-items: center;
         }
 
         .gallery-title {
-            font-size: 100px; /* Matching homepage name size */
+            font-size: 80px;
             font-weight: 800;
-            letter-spacing: -5px;
-            line-height: 0.85;
+            letter-spacing: -3px;
+            color: #7d61a8;
         }
 
         .back-btn {
             background: #7d61a8;
             color: white;
-            padding: 25px 50px;
-            border-radius: 20px;
+            padding: 20px 40px;
+            border-radius: 15px;
             text-decoration: none;
-            font-weight: 800;
-            font-size: 32px;
-            transition: 0.3s;
+            font-weight: 700;
+            font-size: 24px;
+            transition: 0.3s ease;
         }
 
         .back-btn:hover {
             background: #5e4385;
-            transform: translateY(-5px);
+            transform: scale(1.05);
         }
 
-        /* Large Masonry Grid */
+        /* Masonry Grid Fix */
         .gallery-grid {
-            columns: 3 400px; /* Wider columns for bigger impact */
-            column-gap: 40px;
-            max-width: 1600px;
+            columns: 3 350px; /* Responsive columns */
+            column-gap: 30px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .gallery-item {
             break-inside: avoid;
-            margin-bottom: 40px;
-            border-radius: 30px;
-            overflow: hidden;
-            border: 8px solid white;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
             background: white;
-            transition: 0.4s ease;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
         }
 
         .gallery-item:hover {
-            transform: scale(1.02);
-            box-shadow: 0 20px 45px rgba(125, 97, 168, 0.2);
+            transform: translateY(-10px);
         }
 
         .gallery-item img {
             width: 100%;
+            height: auto;
             display: block;
             object-fit: cover;
         }
 
-        @media (max-width: 1024px) {
-            .gallery-title { font-size: 60px; }
-            header { flex-direction: column; align-items: flex-start; gap: 30px; }
-            .gallery-grid { columns: 2 300px; }
+        @media (max-width: 768px) {
+            body { padding: 30px 20px; }
+            .gallery-title { font-size: 50px; }
+            .gallery-grid { columns: 1; }
+            .back-btn { font-size: 18px; padding: 15px 25px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div>
-            <h1 class="gallery-title">Visual<br>Journal</h1>
-        </div>
-        <a href="index.html" class="back-btn">← Back Home</a>
+        <h1 class="gallery-title">Photography</h1>
+        <a href="index.html" class="back-btn">← Back</a>
     </header>
 
     <div class="gallery-grid" id="photo-gallery">
@@ -100,19 +98,20 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const container = document.getElementById('photo-gallery');
-            const totalPhotos = 50; // UPDATED: Now shows all 50 photos
+            const totalPhotos = 50; 
             
-            // This loop generates all 50 image items
+            // Generate all 50 items
             for (let i = 1; i <= totalPhotos; i++) {
                 const item = document.createElement('div');
                 item.className = 'gallery-item';
                 
-                // Using the same naming convention as your home page script
-                item.innerHTML = `
-                    <img src="pics/${i}.jpeg.jpeg" 
-                         alt="Photography by Hamza Suhwail" 
-                         loading="lazy">
-                `;
+                // Matches your file naming: pics/1.jpeg.jpeg
+                const img = document.createElement('img');
+                img.src = `pics/${i}.jpeg.jpeg`;
+                img.alt = `Photo ${i}`;
+                img.loading = "lazy"; // Better performance
+
+                item.appendChild(img);
                 container.appendChild(item);
             }
         });
