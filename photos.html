@@ -3,119 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery | Hamza Suhwail</title>
+    <title>Photo Collection | Hamza Suhwail</title>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Instrument Sans', sans-serif; }
-
-        body {
-            background-color: #fcf9ff;
-            color: #312645;
-            padding: 60px;
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Instrument Sans', sans-serif; 
+        }
+        
+        body { 
+            background-color: #fcf9ff; 
+            padding: 40px; 
         }
 
-        /* Clean, Large Header */
-        header {
-            max-width: 1400px;
-            margin: 0 auto 60px auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .gallery-title {
-            font-size: 80px;
-            font-weight: 800;
-            letter-spacing: -3px;
-            color: #7d61a8;
-        }
-
-        .back-btn {
-            background: #7d61a8;
-            color: white;
-            padding: 20px 40px;
-            border-radius: 15px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 24px;
-            transition: 0.3s ease;
-        }
-
-        .back-btn:hover {
-            background: #5e4385;
-            transform: scale(1.05);
-        }
-
-        /* Masonry Grid Fix */
-        .gallery-grid {
-            columns: 3 350px; /* Responsive columns */
-            column-gap: 30px;
-            max-width: 1400px;
+        /* --- CENTERED BOLD HEADER --- */
+        .gallery-header {
+            text-align: center;
+            padding: 80px 20px 60px 20px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        .gallery-item {
-            break-inside: avoid;
-            margin-bottom: 30px;
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
+        .gallery-header h1 {
+            font-size: 90px;
+            font-weight: 800;
+            letter-spacing: -4px;
+            color: #3a2456;
+            text-transform: uppercase;
+            line-height: 0.8;
+            margin-bottom: 15px;
         }
 
-        .gallery-item:hover {
-            transform: translateY(-10px);
+        .name-subtitle {
+            font-size: 32px;
+            font-weight: 400;
+            color: #7d61a8;
+            letter-spacing: 2px;
         }
 
-        .gallery-item img {
+        .back-btn-container {
+            margin-top: 35px;
+        }
+
+        .back-home {
+            text-decoration: none;
+            color: #7d61a8;
+            font-weight: 700;
+            font-size: 18px;
+            border: 2px solid #7d61a8;
+            padding: 12px 30px;
+            border-radius: 50px;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .back-home:hover {
+            background: #7d61a8;
+            color: white;
+        }
+
+        /* --- FULL PAGE MASONRY (TETRIS STYLE) --- */
+        .masonry-container {
+            column-count: 4; /* Spreads across the page */
+            column-gap: 20px;
+            max-width: 1600px;
+            margin: 40px auto;
+        }
+
+        .photo-item {
+            display: inline-block;
             width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 4px solid #3a2456;
+            position: relative;
+            transition: transform 0.3s ease;
+            background: #3a2456;
         }
 
-        @media (max-width: 768px) {
-            body { padding: 30px 20px; }
-            .gallery-title { font-size: 50px; }
-            .gallery-grid { columns: 1; }
-            .back-btn { font-size: 18px; padding: 15px 25px; }
+        .photo-item:hover {
+            transform: scale(1.02);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: auto; /* NO CUTTING - Original proportions */
+            display: block;
+        }
+
+        .photo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(58, 36, 86, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .photo-item:hover .photo-overlay {
+            opacity: 1;
+        }
+
+        .photo-overlay h3 {
+            color: white;
+            font-size: 20px;
+            font-weight: 800;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* --- RESPONSIVE STEPS --- */
+        @media (max-width: 1200px) {
+            .masonry-container { column-count: 2; }
+            .gallery-header h1 { font-size: 60px; }
+        }
+        @media (max-width: 600px) {
+            .masonry-container { column-count: 1; }
+            .gallery-header h1 { font-size: 40px; }
+            .name-subtitle { font-size: 22px; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1 class="gallery-title">Photography</h1>
-        <a href="index.html" class="back-btn">← Back</a>
+    <header class="gallery-header">
+        <h1>Photo Collection</h1>
+        <div class="name-subtitle">Hamza Suhwail</div>
+        <div class="back-btn-container">
+            <a href="index.html" class="back-home">← Back to Portfolio</a>
+        </div>
     </header>
 
-    <div class="gallery-grid" id="photo-gallery">
+    <main class="masonry-container">
+        <div class="photo-item">
+            <img src="pics/1.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 01</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/2.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 02</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/3.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 03</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/4.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 04</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/5.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 05</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/6.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 06</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/7.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 07</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/8.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 08</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/9.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 09</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/10.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 10</h3></div>
+        </div>
+        <div class="photo-item">
+            <img src="pics/11.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 11</h3></div>
+        </div>
+<div class="photo-item">
+            <img src="pics/12.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 11</h3></div>
         </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const container = document.getElementById('photo-gallery');
-            const totalPhotos = 50; 
-            
-            // Generate all 50 items
-            for (let i = 1; i <= totalPhotos; i++) {
-                const item = document.createElement('div');
-                item.className = 'gallery-item';
-                
-                // Matches your file naming: pics/1.jpeg.jpeg
-                const img = document.createElement('img');
-                img.src = `pics/${i}.jpeg.jpeg`;
-                img.alt = `Photo ${i}`;
-                img.loading = "lazy"; // Better performance
-
-                item.appendChild(img);
-                container.appendChild(item);
-            }
-        });
-    </script>
+<div class="photo-item">
+            <img src="pics/13.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 11</h3></div>
+        </div>
+<div class="photo-item">
+            <img src="pics/14.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 11</h3></div>
+        </div>
+<div class="photo-item">
+            <img src="pics/15.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 11</h3></div>
+        </div>
+<div class="photo-item">
+            <img src="pics/16.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 11</h3></div>
+        </div>
+<div class="photo-item">
+            <img src="pics/17.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 11</h3></div>
+        </div>
+<div class="photo-item">
+            <img src="pics/18.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 11</h3></div>
+        </div>
+<div class="photo-item">
+            <img src="pics/19.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 11</h3></div>
+        </div>
+<div class="photo-item">
+            <img src="pics/20.jpeg.jpeg">
+            <div class="photo-overlay"><h3>Visual 11</h3></div>
+        </div>
+    </main>
 
 </body>
 </html>
+
