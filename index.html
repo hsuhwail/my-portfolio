@@ -79,7 +79,6 @@
         .company-logo { width: 65px; height: 65px; object-fit: contain; border-radius: 12px; background: white; padding: 8px; transition: 0.3s ease; border: 2px solid rgba(255, 255, 255, 0.2); }
         .current-item p { font-size: 28px; line-height: 1.2; font-weight: 600; }
 
-        /* INDEX STYLING */
         .sidebar-nav {
             margin-top: 10px;
             margin-bottom: 30px;
@@ -113,7 +112,7 @@
         .social-icons a { color: white; font-size: 55px; text-decoration: none; transition: 0.3s; }
         .social-icons a:hover { color: #ebdfff; transform: scale(1.1); }
 
-        /* --- RIGHT SIDE: SCROLLABLE CONTENT --- */
+        /* --- RIGHT SIDE CONTENT --- */
         .main-content {
             margin-left: 550px;
             flex: 1;
@@ -131,19 +130,27 @@
         .job-title { color: #5e4385; font-size: 45px; font-weight: 800; display: block; margin-bottom: 5px; }
         .sub-info { color: #726284; font-size: 26px; font-weight: 600; display: block; margin-bottom: 20px; }
         
-        .cert-item { display: block; margin-bottom: 15px; }
-
         .description { font-size: 28px; line-height: 1.6; color: #2d232e; margin-bottom: 40px; }
 
         .class-grid { display: flex; flex-wrap: wrap; gap: 15px; }
         .class-pill { background: white; padding: 15px 30px; border-radius: 12px; border: 3px solid #7d61a8; font-weight: 700; font-size: 22px; color: #5e4385; }
 
-        /* --- RESUME SECTION --- */
-        .resume-container { width: 100%; border-radius: 20px; overflow: hidden; border: 4px solid #7d61a8; background: white; margin-top: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
-        .resume-iframe { width: 100%; height: 800px; border: none; }
-        .resume-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
-        .download-btn { background: #7d61a8; color: white; padding: 15px 35px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 22px; transition: 0.3s; display: flex; align-items: center; gap: 10px; }
-        .download-btn:hover { background: #5e4385; transform: translateY(-3px); }
+        /* --- RESUME LINK BUTTON --- */
+        .resume-link-btn {
+            background: #7d61a8;
+            color: white;
+            padding: 25px 50px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 28px;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+        .resume-link-btn:hover { background: #5e4385; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(125, 97, 168, 0.3); }
 
         /* --- PHOTO FEATURE BOX --- */
         .photo-feature-box { background: #7d61a8; padding: 60px; border-radius: 40px; margin-top: 50px; margin-bottom: 100px; }
@@ -161,7 +168,6 @@
             .job-entry { flex-direction: column; gap: 15px; }
             .social-icons { justify-content: center; margin-top: 30px; }
             .sidebar-nav { display: none; }
-            .resume-iframe { height: 600px; }
         }
 
         .main-content::-webkit-scrollbar { width: 15px; }
@@ -193,7 +199,8 @@
                 <a href="#academic">Class Projects</a>
                 <a href="#education">Degrees and Certs</a>
                 <a href="#skills">Classes Taken</a>
-                <a href="#resume">View Resume</a> <a href="photos.html">Photo Gallery</a>
+                <a href="#resume">Resume</a>
+                <a href="photos.html">Photo Gallery</a>
             </nav>
         </div>
 
@@ -208,162 +215,44 @@
         <section id="experience">
             <span class="section-tag">Experience</span>
             <h2>Work History</h2>
-
             <div class="job-entry">
                 <div class="job-time">4/25 — Current</div>
                 <div class="job-details">
                     <span class="job-title">L3Harris Technologies</span>
                     <span class="sub-info">NOC Analyst</span>
-                    <p class="description">Supported 24/7 NOC operations by monitoring network health, analyzing incidents on Red Hat Enterprise Linux, and managing incident workflows in ServiceNow.</p>
-                    <div class="class-grid">
-                        <div class="class-pill">Wazuh</div>
-                        <div class="class-pill">Red Hat Enterprise Linux</div>
-                        <div class="class-pill">ServiceNow</div>
-                        <div class="class-pill">MobaXterm</div>
-                        <div class="class-pill">Access Control</div>
-                        <div class="class-pill">Collaboration</div>
-                        <div class="class-pill">Networking Fundamentals</div>
-                        <div class="class-pill">Troubleshooting</div>
-                        <div class="class-pill">Interpersonal Communication</div>
-                        <div class="class-pill">Documentation</div>
-                        <div class="class-pill">Incident Response</div>
-                        <div class="class-pill">NOC</div>
-                    </div>
+                    <p class="description">Supported 24/7 NOC operations by monitoring network health...</p>
                 </div>
-            </div>
-
-            <div class="job-entry">
-                <div class="job-time">10/23 — 3/24</div>
-                <div class="job-details">
-                    <span class="job-title">DC Integrated Systems</span>
-                    <span class="sub-info">Network Engineer</span>
-                    <p class="description">Secured network infrastructure by configuring a variety of firewalls, routers, and switches and mitigating Layer 1 vulnerabilities for customers.</p>
-                    <div class="class-grid">
-                        <div class="class-pill">System Hardening</div>
-                        <div class="class-pill">TCP/IP</div>
-                        <div class="class-pill">Layer 1 Management</div>
-                        <div class="class-pill">CAT 5 / CAT 6</div>
-                        <div class="class-pill">Time Management</div>
-                        <div class="class-pill">Problem Solving</div>
-                        <div class="class-pill">Adaptable</div>
-                        <div class="class-pill">Collaboration</div>
-                        <div class="class-pill">Detail Oriented</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="job-entry">
-                <div class="job-time">6/23 - 8/23</div>
-                <div class="job-details">
-                    <span class="job-title">CBRE</span>
-                    <span class="sub-info">Software Engineer Intern</span>
-                    <p class="description">Spearheaded nationwide upgrade, deploying 408 Crestron schedulers and 70 controllers in 10 weeks, 33% faster than expected.</p>
-                    <div class="class-grid">
-                        <div class="class-pill">Documentation</div>
-                        <div class="class-pill">System Implementation</div>
-                        <div class="class-pill">AV Systems</div>
-                        <div class="class-pill">Crestron</div>
-                        <div class="class-pill">Deployment</div>
-                        <div class="class-pill">Remote Management</div>
-                        <div class="class-pill">Time Management</div>
-                        <div class="class-pill">Leadership</div>
-                        <div class="class-pill">Collaboration</div>
-                        <div class="class-pill">Communication</div>
-                        <div class="class-pill">Efficient</div>
-                        <div class="class-pill">Organized</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="resume">
-            <span class="section-tag">Credentials</span>
-            <div class="resume-header">
-                <h2>Resume</h2>
-                <a href="resume.pdf" download class="download-btn">
-                    <i class="fas fa-file-download"></i> Download PDF
-                </a>
-            </div>
-            
-            <div class="resume-container">
-                <iframe src="Hamza_Suhwail_Resume.pdf" class="resume-iframe"></iframe>
             </div>
         </section>
 
         <section id="academic">
             <span class="section-tag">Academic</span>
             <h2>Class Projects</h2>
-            <div class="job-entry">
-                <div class="job-time">2024</div>
-                <div class="job-details">
-                    <span class="job-title">Senior Capstone Project</span>
-                    <span class="sub-info">The University of Texas @ Dallas</span>
-                    <p class="description">Led an 11-member cross-functional team using Agile methodology to deliver a modernized, publicly accessible website redesign.</p>
-                    <div class="class-grid">
-                        <div class="class-pill">Agile</div>
-                        <div class="class-pill">Leadership</div>
-                        <div class="class-pill">Accessibility</div>
-                        <div class="class-pill">HTML / CSS</div>
-                        <div class="class-pill">Optimization</div>
-                        <div class="class-pill">UI/UX</div>
-                        <div class="class-pill">Communication</div>
-                        <div class="class-pill">Creative</div>
-                        <div class="class-pill">Problem Solving</div>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
 
         <section id="education">
             <span class="section-tag">Education</span>
             <h2>Degrees & Certs</h2>
-            <div class="job-entry">
-                <div class="job-time">2025 - 2027</div>
-                <div class="job-details">
-                    <span class="job-title">Dakota State University</span>
-                    <span class="sub-info">MS in Cyber Defense</span>
-                </div>
-            </div>
-            <div class="job-entry">
-                <div class="job-time">2020 — 2024</div>
-                <div class="job-details">
-                    <span class="job-title">University of Texas at Dallas</span>
-                    <span class="sub-info">BS in Information Technology (Cybersecurity)</span>
-                </div>
-            </div>
-            <div class="job-entry">
-                <div class="job-time">CERTS</div>
-                <div class="job-details">
-                    <span class="sub-info">
-                        <span class="cert-item">CompTIA Security+ SY0-701</span>
-                        <span class="cert-item">CompTIA CySA+</span>
-                    </span>
-                </div>
-            </div>
-        </section>
+            </section>
 
         <section id="skills">
             <span class="section-tag">Knowledge</span>
             <h2>Classes Taken</h2>
-            <div class="class-grid">
-                <div class="class-pill">Cybersecurity Governance</div>
-                <div class="class-pill">Data Privacy</div>
-                <div class="class-pill">Managing Security Risks</div>
-                <div class="class-pill">Network Security Monitoring & Intrusion Detection</div>
-                <div class="class-pill">Network & Information Security</div>
-                <div class="class-pill">Information Technology Infrastructure</div>
-                <div class="class-pill">Offensive Security</div>
-                <div class="class-pill">Data Structures</div>
-                <div class="class-pill">Information Technology Cybersecurity</div>
-                <div class="class-pill">Object Oriented Programming</div>
-                <div class="class-pill">Systems Analysis & Design</div>
-            </div>
-        </section>
+            </section>
 
         <div class="photo-feature-box">
             <a href="photos.html" class="photo-btn">View Photography →</a>
             <div id="preview-grid" class="preview-grid"></div>
         </div>
+
+        <section id="resume">
+            <span class="section-tag">Credentials</span>
+            <h2>Resume</h2>
+            <p class="description" style="margin-bottom: 20px;">Click below to view my professional history and technical qualifications in a new tab.</p>
+            <a href="resume.pdf" target="_blank" class="resume-link-btn">
+                <i class="fas fa-external-link-alt"></i> View Full Resume
+            </a>
+        </section>
     </main>
 
     <script>
