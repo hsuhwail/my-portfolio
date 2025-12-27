@@ -3,129 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photography | Hamza Suhwail</title>
+    <title>Gallery | Hamza Suhwail</title>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Instrument Sans', sans-serif; }
-        body { background-color: #fcf9ff; display: flex; min-height: 100vh; }
 
-        /* --- SIDEBAR (Original Style) --- */
-        .sidebar {
-            width: 550px; height: 100vh; background: #7d61a8; color: white; padding: 60px;
-            position: fixed; left: 0; top: 0; display: flex; flex-direction: column; z-index: 100;
-        }
-        .portrait { width: 400px; height: 340px; object-fit: cover; border-radius: 20px; margin-bottom: 30px; border: 4px solid #b194d1; }
-        .name-title { font-size: 80px; font-weight: 800; line-height: 0.9; letter-spacing: -3px; }
-        .sidebar-nav { margin-top: 50px; border-top: 1px solid rgba(235, 223, 255, 0.2); padding-top: 30px; }
-        .sidebar-nav a { display: block; color: white; text-decoration: none; font-size: 24px; font-weight: 700; margin-bottom: 15px; }
-        .social-icons { display: flex; gap: 40px; margin-top: auto; padding-bottom: 20px; }
-        .social-icons a { color: white; font-size: 55px; text-decoration: none; }
-
-        /* --- MAIN CONTENT --- */
-        .main-content { margin-left: 550px; flex: 1; padding: 100px; }
-        h2 { font-size: 60px; margin-bottom: 10px; color: #312645; }
-        .quote { font-size: 28px; color: #7d61a8; font-weight: 600; margin-bottom: 60px; }
-
-        /* --- TETRIS (MASONRY) LAYOUT --- */
-        .photo-column-grid {
-            column-count: 3; /* The "Tetris" magic */
-            column-gap: 20px;
-            width: 100%;
+        body {
+            background-color: #fcf9ff;
+            color: #312645;
+            padding: 80px 40px;
         }
 
-        .photo-card {
-            break-inside: avoid; /* Keeps images from splitting */
-            margin-bottom: 20px;
-            background: white;
+        /* Massive Header */
+        header {
+            max-width: 1600px;
+            margin: 0 auto 80px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .gallery-title {
+            font-size: 100px; /* Matching homepage name size */
+            font-weight: 800;
+            letter-spacing: -5px;
+            line-height: 0.85;
+        }
+
+        .back-btn {
+            background: #7d61a8;
+            color: white;
+            padding: 25px 50px;
             border-radius: 20px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 32px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #5e4385;
+            transform: translateY(-5px);
+        }
+
+        /* Large Masonry Grid */
+        .gallery-grid {
+            columns: 3 400px; /* Wider columns for bigger impact */
+            column-gap: 40px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 40px;
+            border-radius: 30px;
             overflow: hidden;
-            border: 4px solid white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            cursor: pointer; /* Shows it's clickable */
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s ease;
+            border: 8px solid white;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            background: white;
+            transition: 0.4s ease;
         }
 
-        .photo-card.reveal { opacity: 1; transform: translateY(0); }
-        .photo-card img { width: 100%; height: auto; display: block; transition: 0.3s; }
-        .photo-card:hover img { transform: scale(1.05); }
-
-        /* --- LIGHTBOX (EXPAND) STYLE --- */
-        .lightbox {
-            display: none; position: fixed; z-index: 1000; top: 0; left: 0;
-            width: 100%; height: 100%; background: rgba(0,0,0,0.9);
-            justify-content: center; align-items: center; cursor: zoom-out;
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 45px rgba(125, 97, 168, 0.2);
         }
-        .lightbox img { max-width: 90%; max-height: 90%; border-radius: 10px; box-shadow: 0 0 50px rgba(0,0,0,0.5); }
 
-        @media (max-width: 1600px) { .photo-column-grid { column-count: 2; } }
-        @media (max-width: 1200px) {
-            body { flex-direction: column; }
-            .sidebar { width: 100%; height: auto; position: relative; padding: 40px 20px; align-items: center; text-align: center; }
-            .main-content { margin-left: 0; padding: 40px 20px; }
-            .photo-column-grid { column-count: 2; }
+        .gallery-item img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        @media (max-width: 1024px) {
+            .gallery-title { font-size: 60px; }
+            header { flex-direction: column; align-items: flex-start; gap: 30px; }
+            .gallery-grid { columns: 2 300px; }
         }
     </style>
 </head>
 <body>
 
-    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-        <img id="lightbox-img" src="">
-    </div>
-
-    <aside class="sidebar">
-        <img src="portrait.jpg" class="portrait">
-        <h1 class="name-title">Hamza<br>Suhwail</h1>
-        <nav class="sidebar-nav">
-            <a href="index.html">← Back to Portfolio</a>
-        </nav>
-        <div class="social-icons">
-            <a href="https://www.linkedin.com/in/hamza-suhwail/"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/hsuhwail/"><i class="fab fa-github"></i></a>
-            <a href="https://music.apple.com/us/playlist/hamza/pl.u-zPyLl43uxRGB4r"><i class="fab fa-apple"></i></a>
+    <header>
+        <div>
+            <h1 class="gallery-title">Visual<br>Journal</h1>
         </div>
-    </aside>
+        <a href="index.html" class="back-btn">← Back Home</a>
+    </header>
 
-    <main class="main-content">
-        <h2>Photo Gallery</h2>
-        <p class="quote">Exploring new places, cultures, and perspectives, one trip at a time.</p>
-        <div id="tetris-grid" class="photo-column-grid"></div>
-    </main>
+    <div class="gallery-grid" id="photo-gallery">
+        </div>
 
     <script>
-        function loadGallery() {
-            const container = document.getElementById('tetris-grid');
-            const totalPhotos = 50;
-
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('photo-gallery');
+            const totalPhotos = 50; // UPDATED: Now shows all 50 photos
+            
+            // This loop generates all 50 image items
             for (let i = 1; i <= totalPhotos; i++) {
-                const card = document.createElement('div');
-                card.className = 'photo-card';
-                // Trigger Lightbox on click
-                card.onclick = () => openLightbox(`pics/${i}.jpeg.jpeg`);
+                const item = document.createElement('div');
+                item.className = 'gallery-item';
                 
-                card.innerHTML = `<img src="pics/${i}.jpeg.jpeg" loading="lazy">`;
-                container.appendChild(card);
-
-                // Reveal fade effect
-                setTimeout(() => { card.classList.add('reveal'); }, i * 50);
+                // Using the same naming convention as your home page script
+                item.innerHTML = `
+                    <img src="pics/${i}.jpeg.jpeg" 
+                         alt="Photography by Hamza Suhwail" 
+                         loading="lazy">
+                `;
+                container.appendChild(item);
             }
-        }
-
-        function openLightbox(src) {
-            const lb = document.getElementById('lightbox');
-            const lbImg = document.getElementById('lightbox-img');
-            lbImg.src = src;
-            lb.style.display = 'flex';
-        }
-
-        function closeLightbox() {
-            document.getElementById('lightbox').style.display = 'none';
-        }
-
-        window.addEventListener('DOMContentLoaded', loadGallery);
+        });
     </script>
+
 </body>
 </html>
