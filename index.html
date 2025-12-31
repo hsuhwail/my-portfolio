@@ -28,13 +28,13 @@
             overflow-x: hidden; 
         }
 
-        /* --- SIDEBAR: ULTRA-COMPACT NON-SCROLLING --- */
+        /* --- SIDEBAR: NON-SCROLLING & DYNAMIC --- */
         .sidebar {
-            width: 450px; 
+            width: 550px; 
             height: 100vh;
             background: #7d61a8;
             color: white;
-            padding: 3vh 40px; 
+            padding: 3vh 50px; 
             position: fixed;
             left: 0;
             top: 0;
@@ -42,37 +42,38 @@
             flex-direction: column;
             justify-content: space-between; 
             z-index: 100;
-            overflow: hidden; /* No scrolling on the left side */
+            overflow: hidden; 
         }
 
-        .sidebar-top {
+        .sidebar-top-container {
             display: flex;
             flex-direction: column;
-            flex-shrink: 1; /* Allows this section to shrink to fit the screen */
+            flex-shrink: 1;
             min-height: 0;
         }
 
         .portrait {
             width: 100%;
-            max-width: 320px;
-            height: 20vh; /* Reduced height to save space */
+            max-width: 380px;
+            height: 22vh; 
             object-fit: cover;
             border-radius: 20px;
-            border: 4px solid #b194d1;
+            border: 5px solid #b194d1;
             margin-bottom: 2vh;
+            display: block;
         }
 
-        .name-title { font-size: 5.5vh; font-weight: 800; line-height: 0.85; letter-spacing: -2px; margin-bottom: 1vh; }
-        .email-current { display: block; font-size: 1.8vh; color: #ebdfff; font-weight: 400; margin-bottom: 2vh; }
+        .name-title { font-size: 6vh; font-weight: 800; line-height: 0.85; letter-spacing: -3px; margin-bottom: 1vh; }
+        .email-current { display: block; font-size: 2vh; color: #ebdfff; font-weight: 400; margin-bottom: 3vh; }
 
-        .currently-section h3 { font-size: 1.4vh; text-transform: uppercase; letter-spacing: 3px; color: #ebdfff; margin-bottom: 1vh; }
-        .current-item { display: flex; align-items: center; gap: 12px; margin-bottom: 1vh; }
-        .company-logo { width: 4vh; height: 4vh; object-fit: contain; border-radius: 6px; background: white; padding: 4px; }
-        .current-item p { font-size: 1.8vh; line-height: 1.2; font-weight: 600; }
+        .currently-section h3 { font-size: 1.6vh; text-transform: uppercase; letter-spacing: 4px; color: #ebdfff; margin-bottom: 1.5vh; }
+        .current-item { display: flex; align-items: center; gap: 15px; margin-bottom: 1.5vh; }
+        .company-logo { width: 4.5vh; height: 4.5vh; object-fit: contain; border-radius: 10px; background: white; padding: 6px; }
+        .current-item p { font-size: 2vh; line-height: 1.2; font-weight: 600; }
 
         .sidebar-nav {
             border-top: 1px solid rgba(235, 223, 255, 0.2);
-            padding-top: 1.5vh;
+            padding-top: 2vh;
             margin-top: 1vh;
         }
 
@@ -80,81 +81,75 @@
             display: block;
             color: white;
             text-decoration: none;
-            font-size: 2.2vh; 
+            font-size: 2.5vh; 
             font-weight: 700;
-            margin-bottom: 0.8vh;
+            margin-bottom: 1vh;
             opacity: 0.8;
             transition: 0.3s;
         }
 
-        .sidebar-nav a:hover { opacity: 1; transform: translateX(8px); color: #ebdfff; }
+        .sidebar-nav a:hover { opacity: 1; transform: translateX(10px); color: #ebdfff; }
 
-        .social-icons { 
-            display: flex; 
-            gap: 25px; 
-            margin-top: auto; 
-            padding-top: 2vh;
-            border-top: 1px solid rgba(235, 223, 255, 0.1);
-        }
-        .social-icons a { color: white; font-size: 3.5vh; text-decoration: none; transition: 0.3s; }
+        .social-icons { display: flex; gap: 30px; margin-top: auto; padding-top: 2vh; }
+        .social-icons a { color: white; font-size: 4.5vh; text-decoration: none; transition: 0.3s; }
         .social-icons a:hover { color: #ebdfff; transform: scale(1.1); }
 
         /* --- CONTENT AREA --- */
         .main-content {
-            margin-left: 450px;
+            margin-left: 550px;
             flex: 1;
-            padding: 80px 60px;
+            padding: 120px 80px;
             min-height: 100vh;
         }
 
-        section { margin-bottom: 120px; }
-        h2 { font-size: 70px; margin-bottom: 50px; letter-spacing: -3px; color: #312645; line-height: 0.9; }
-        .section-tag { font-weight: 700; color: #7d61a8; text-transform: uppercase; font-size: 20px; letter-spacing: 4px; display: block; margin-bottom: 25px; }
+        section { margin-bottom: 180px; }
+        h2 { font-size: 80px; margin-bottom: 60px; letter-spacing: -4px; color: #312645; line-height: 0.9; }
+        .section-tag { font-weight: 700; color: #7d61a8; text-transform: uppercase; font-size: 30px; letter-spacing: 5px; display: block; margin-bottom: 40px; }
 
-        .job-entry { margin-bottom: 100px; display: flex; gap: 40px; }
-        .job-time { flex: 0 0 160px; font-size: 22px; font-weight: 700; color: #7d61a8; }
+        .job-entry { margin-bottom: 140px; display: flex; gap: 60px; }
+        .job-time { flex: 0 0 200px; font-size: 28px; font-weight: 700; color: #7d61a8; }
         .job-details { flex: 1; }
         
-        .job-title { color: #5e4385; font-size: 44px; font-weight: 800; display: block; margin-bottom: 8px; line-height: 1.1; }
-        .sub-info { color: #726284; font-size: 28px; font-weight: 600; display: block; margin-bottom: 25px; }
+        .job-title { color: #5e4385; font-size: 50px; font-weight: 800; display: block; margin-bottom: 10px; line-height: 1.1; }
+        .sub-info { color: #726284; font-size: 32px; font-weight: 600; display: block; margin-bottom: 25px; }
         
-        .description { font-size: 24px; line-height: 1.6; color: #2d232e; margin-bottom: 30px; }
-        
-        .class-grid { display: flex; flex-wrap: wrap; gap: 12px; }
-        .class-pill { background: white; padding: 10px 20px; border-radius: 10px; border: 2px solid #7d61a8; font-weight: 700; font-size: 16px; color: #5e4385; }
+        .description { font-size: 32px; line-height: 1.6; color: #2d232e; margin-bottom: 40px; }
+        .cert-item { display: block; margin-bottom: 15px; }
 
-        /* --- RESPONSIVE FIXES --- */
-        @media (max-width: 1100px) {
-            .sidebar { width: 350px; padding: 2vh 25px; }
-            .main-content { margin-left: 350px; padding: 60px 40px; }
-            .portrait { max-width: 250px; }
+        .class-grid { display: flex; flex-wrap: wrap; gap: 20px; }
+        .class-pill { background: white; padding: 18px 35px; border-radius: 15px; border: 4px solid #7d61a8; font-weight: 700; font-size: 22px; color: #5e4385; }
+
+        /* --- PHOTO SECTION --- */
+        .photo-feature-box { background: #7d61a8; padding: 80px 60px; border-radius: 50px; margin-top: 60px; }
+        .photo-btn { background: white; color: #7d61a8; padding: 30px 60px; border-radius: 25px; text-decoration: none; font-weight: 800; font-size: 38px; display: inline-block; margin-bottom: 60px; transition: 0.3s; }
+        .preview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .large-preview-card { height: 400px; border: 7px solid white; border-radius: 35px; overflow: hidden; }
+        .large-preview-card img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* --- MOBILE FIXES --- */
+        @media (max-width: 1200px) {
+            .sidebar { width: 450px; padding: 3vh 30px; }
+            .main-content { margin-left: 450px; padding: 80px 40px; }
         }
 
-        @media (max-width: 850px) {
+        @media (max-width: 1024px) {
             body { flex-direction: column; }
-            .sidebar { 
-                width: 100%; 
-                height: auto; 
-                position: relative; 
-                overflow: visible; 
-                padding: 40px 20px; 
-                justify-content: center;
-                align-items: center;
-                text-align: center;
-            }
-            .sidebar-top { align-items: center; }
-            .portrait { height: 250px; width: 250px; margin: 0 auto 20px; }
-            .main-content { margin-left: 0; padding: 40px 20px; width: 100%; }
-            .name-title { font-size: 50px; }
-            .sidebar-nav { display: none; } /* Navigation usually goes to a menu/burger on small mobile */
-            .social-icons { justify-content: center; width: 100%; }
+            .sidebar { width: 100%; height: auto; position: relative; overflow: visible; padding: 60px 40px; text-align: center; }
+            .sidebar-top-container { align-items: center; }
+            .portrait { width: 300px; height: 300px; margin: 0 auto 30px; }
+            .main-content { margin-left: 0; padding: 60px 30px; width: 100%; }
+            .current-item { justify-content: center; }
+            .sidebar-nav { display: none; }
+            .social-icons { justify-content: center; padding-top: 40px; }
+            h2 { font-size: 60px; }
+            .job-entry { flex-direction: column; gap: 20px; }
         }
     </style>
 </head>
 <body>
 
     <aside class="sidebar">
-        <div class="sidebar-top">
+        <div class="sidebar-top-container">
             <img src="portrait.jpg" alt="Portrait" class="portrait">
             <h1 class="name-title">Hamza<br>Suhwail</h1>
             <p class="email-current">hsuhwail@gmail.com</p>
@@ -172,7 +167,7 @@
             </div>
 
             <nav class="sidebar-nav">
-                <a href="resume.pdf" target="_blank">Resume <i class="fas fa-external-link-alt" style="font-size: 14px; margin-left: 5px;"></i></a>
+                <a href="resume.pdf" target="_blank">Resume <i class="fas fa-external-link-alt" style="font-size: 18px; margin-left: 10px;"></i></a>
                 <a href="#experience">Work History</a>
                 <a href="#academic">Class Projects</a>
                 <a href="#education">Degrees and Certs</a>
@@ -200,14 +195,103 @@
                     <span class="sub-info">NOC Analyst</span>
                     <p class="description">Supported 24/7 NOC operations by monitoring network health, analyzing incidents on Red Hat Enterprise Linux, and managing incident workflows in ServiceNow.</p>
                     <div class="class-grid">
-                        <div class="class-pill">Wazuh</div><div class="class-pill">RHEL</div><div class="class-pill">ServiceNow</div>
-                        <div class="class-pill">Networking</div><div class="class-pill">Incident Response</div>
+                        <div class="class-pill">Wazuh</div><div class="class-pill">Red Hat Enterprise Linux</div><div class="class-pill">ServiceNow</div>
+                        <div class="class-pill">MobaXterm</div><div class="class-pill">Access Control</div><div class="class-pill">Collaboration</div>
+                        <div class="class-pill">Networking Fundamentals</div><div class="class-pill">Troubleshooting</div>
+                        <div class="class-pill">Interpersonal Communication</div><div class="class-pill">Documentation</div>
+                        <div class="class-pill">Incident Response</div><div class="class-pill">NOC</div>
                     </div>
                 </div>
             </div>
-            </section>
-        
-        </main>
+
+            <div class="job-entry">
+                <div class="job-time">10/23 — 3/24</div>
+                <div class="job-details">
+                    <span class="job-title">DC Integrated Systems</span>
+                    <span class="sub-info">Network Engineer</span>
+                    <p class="description">Secured network infrastructure by configuring a variety of firewalls, routers, and switches and mitigating Layer 1 vulnerabilities for customers.</p>
+                    <div class="class-grid">
+                        <div class="class-pill">System Hardening</div><div class="class-pill">TCP/IP</div><div class="class-pill">Layer 1 Management</div>
+                        <div class="class-pill">CAT 5 / CAT 6</div><div class="class-pill">Time Management</div><div class="class-pill">Problem Solving</div>
+                        <div class="class-pill">Adaptable</div><div class="class-pill">Collaboration</div><div class="class-pill">Detail Oriented</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="job-entry">
+                <div class="job-time">6/23 - 8/23</div>
+                <div class="job-details">
+                    <span class="job-title">CBRE</span>
+                    <span class="sub-info">Software Engineer Intern</span>
+                    <p class="description">Spearheaded nationwide upgrade, deploying 408 Crestron schedulers and 70 controllers in 10 weeks, 33% faster than expected.</p>
+                    <div class="class-grid">
+                        <div class="class-pill">Documentation</div><div class="class-pill">System Implementation</div><div class="class-pill">AV Systems</div>
+                        <div class="class-pill">Crestron</div><div class="class-pill">Deployment</div><div class="class-pill">Remote Management</div>
+                        <div class="class-pill">Time Management</div><div class="class-pill">Leadership</div><div class="class-pill">Collaboration</div>
+                        <div class="class-pill">Communication</div><div class="class-pill">Efficient</div><div class="class-pill">Organized</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="academic">
+            <span class="section-tag">Academic</span>
+            <h2>Class Projects</h2>
+            <div class="job-entry">
+                <div class="job-time">2024</div>
+                <div class="job-details">
+                    <span class="job-title">Senior Capstone Project</span>
+                    <span class="sub-info">The University of Texas @ Dallas</span>
+                    <p class="description">Led an 11-member cross-functional team using Agile methodology to deliver a modernized, publicly accessible website redesign.</p>
+                    <div class="class-grid">
+                        <div class="class-pill">Agile</div><div class="class-pill">Leadership</div><div class="class-pill">Accessibility</div>
+                        <div class="class-pill">HTML / CSS</div><div class="class-pill">Optimization</div><div class="class-pill">UI/UX</div>
+                        <div class="class-pill">Communication</div><div class="class-pill">Creative</div><div class="class-pill">Problem Solving</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <span class="section-tag">Education</span>
+            <h2>Degrees & Certs</h2>
+            <div class="job-entry">
+                <div class="job-time">2025 - 2027</div>
+                <div class="job-details"><span class="job-title">Dakota State University</span><span class="sub-info">MS in Cyber Defense</span></div>
+            </div>
+            <div class="job-entry">
+                <div class="job-time">2020 — 2024</div>
+                <div class="job-details"><span class="job-title">UT Dallas</span><span class="sub-info">BS in Information Technology (Cybersecurity)</span></div>
+            </div>
+            <div class="job-entry">
+                <div class="job-time">CERTS</div>
+                <div class="job-details">
+                    <div class="sub-info">
+                        <span class="cert-item">CompTIA Security+ SY0-701</span>
+                        <span class="cert-item">CompTIA CySA+</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <span class="section-tag">Knowledge</span>
+            <h2>Classes Taken</h2>
+            <div class="class-grid">
+                <div class="class-pill">Cybersecurity Governance</div><div class="class-pill">Data Privacy</div>
+                <div class="class-pill">Managing Security Risks</div><div class="class-pill">Intrusion Detection</div>
+                <div class="class-pill">Network Security</div><div class="class-pill">IT Infrastructure</div>
+                <div class="class-pill">Offensive Security</div><div class="class-pill">Data Structures</div>
+                <div class="class-pill">Cybersecurity Fundamentals</div><div class="class-pill">Object Oriented Programming</div>
+                <div class="class-pill">Systems Analysis & Design</div>
+            </div>
+        </section>
+
+        <div class="photo-feature-box">
+            <a href="photos.html" class="photo-btn">View Photography →</a>
+            <div id="preview-grid" class="preview-grid"></div>
+        </div>
+    </main>
 
     <script>
         function loadPreviews() {
