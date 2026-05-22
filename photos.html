@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photography | Hamza Suhwail</title>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Instrument Sans', sans-serif; }
-        body { background-color: #fcf9ff; display: flex; min-height: 100vh; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: #f5f5f3; display: flex; min-height: 100vh; }
 
-        /* --- SIDEBAR (Original Massive Style) --- */
+        /* --- SIDEBAR (original structure, new colors/fonts) --- */
         .sidebar {
             width: 650px; 
             height: 100vh; 
-            background: #7d61a8; 
+            background: #1c1c1e;
             color: white; 
             padding: 80px 60px;
             position: fixed; left: 0; top: 0; 
@@ -23,61 +23,67 @@
         }
         .portrait { 
             width: 450px; height: 380px; 
-            object-fit: cover; border-radius: 25px; 
-            margin-bottom: 40px; border: 6px solid #b194d1; 
+            object-fit: cover; border-radius: 20px; 
+            margin-bottom: 40px; border: 4px solid #3a3a3c;
         }
-        .name-title { font-size: 100px; font-weight: 800; line-height: 0.85; letter-spacing: -5px; }
+        .name-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 100px; font-weight: 800; line-height: 0.85; letter-spacing: -5px;
+            color: #ffffff;
+        }
         
         .sidebar-nav { 
             margin-top: 60px; 
-            border-top: 2px solid rgba(235, 223, 255, 0.2); 
+            border-top: 1px solid #2c2c2e;
             padding-top: 40px; 
         }
         .sidebar-nav a { 
-            display: block; color: white; text-decoration: none; 
-            font-size: 36px; font-weight: 700; margin-bottom: 25px; 
-            transition: 0.3s;
+            display: block; color: #8e8e93; text-decoration: none; 
+            font-size: 36px; font-weight: 500; margin-bottom: 25px; 
+            transition: 0.2s;
         }
-        .sidebar-nav a:hover { transform: translateX(15px); color: #ebdfff; }
+        .sidebar-nav a:hover { transform: translateX(15px); color: #ffffff; }
 
         .social-icons { display: flex; gap: 50px; margin-top: auto; padding-bottom: 20px; }
-        .social-icons a { color: white; font-size: 70px; text-decoration: none; transition: 0.3s; }
+        .social-icons a { color: #636366; font-size: 70px; text-decoration: none; transition: 0.2s; }
+        .social-icons a:hover { color: #ffffff; transform: scale(1.1); }
 
-        /* --- MAIN CONTENT (Spaced out & Centered Header) --- */
+        /* --- MAIN CONTENT --- */
         .main-content { 
             margin-left: 650px; 
             flex: 1; 
-            padding: 100px 60px; /* Wider padding for bigger image spread */
+            padding: 100px 60px;
         }
 
         .header-container {
-            text-align: center; /* ONLY centering the text */
+            text-align: center;
             width: 100%;
             margin-bottom: 80px;
         }
 
         h2 { 
+            font-family: 'Playfair Display', serif;
             font-size: 90px; 
             margin-bottom: 15px; 
-            color: #312645; 
+            color: #1c1c1e;
             letter-spacing: -4px; 
             line-height: 0.9; 
         }
         
         .quote { 
             font-size: 38px; 
-            color: #7d61a8; 
-            font-weight: 600; 
+            color: #636366;
+            font-weight: 400;
             line-height: 1.3;
-            max-width: 1100px; /* Prevents text from stretching too far while centered */
+            max-width: 1100px;
             margin: 0 auto;
         }
 
-        /* --- TETRIS (MASONRY) LAYOUT - FULL SPREAD --- */
+        /* --- MASONRY LAYOUT --- */
         .photo-column-grid {
             column-count: 3;
             column-gap: 30px;
-            width: 100%; /* Spreads all over the page */
+            width: 100%;
         }
 
         .photo-card {
