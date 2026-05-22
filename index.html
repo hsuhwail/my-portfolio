@@ -16,19 +16,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        :root {
-            --sidebar-width: clamp(260px, 28vw, 480px);
-            --content-pad: clamp(24px, 5vw, 80px);
-            --section-gap: clamp(80px, 10vw, 160px);
-            --h2-size: clamp(36px, 5vw, 68px);
-            --job-title-size: clamp(22px, 3vw, 42px);
-            --date-size: clamp(14px, 1.4vw, 18px);
-            --body-size: clamp(13px, 1.1vw, 15px);
-            --pill-size: clamp(11px, 0.9vw, 13px);
-            --sidebar-name-size: clamp(28px, 3.5vw, 52px);
-            --sidebar-body: clamp(11px, 1.1vw, 14px);
-        }
-
         html { scroll-behavior: smooth; }
         section { scroll-margin-top: 50px; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
@@ -40,13 +27,13 @@
             overflow-x: hidden;
         }
 
-        /* --- SIDEBAR --- */
+        /* --- SIDEBAR: fixed original sizing --- */
         .sidebar {
-            width: var(--sidebar-width);
+            width: 550px;
             height: 100vh;
             background: #1c1c1e;
             color: white;
-            padding: clamp(20px, 3vh, 40px) clamp(20px, 3vw, 50px);
+            padding: 3vh 50px;
             position: fixed;
             left: 0;
             top: 0;
@@ -66,129 +53,98 @@
 
         .portrait {
             width: 100%;
-            max-width: 100%;
-            height: clamp(100px, 18vh, 200px);
+            max-width: 380px;
+            height: 22vh;
             object-fit: cover;
-            border-radius: 12px;
+            border-radius: 16px;
             border: 2px solid #3a3a3c;
-            margin-bottom: clamp(12px, 1.5vh, 20px);
+            margin-bottom: 2vh;
             display: block;
         }
 
         .name-title {
             font-family: 'Playfair Display', serif;
-            font-size: var(--sidebar-name-size);
+            font-size: 6vh;
             font-weight: 800;
-            line-height: 0.9;
-            letter-spacing: -1px;
-            margin-bottom: clamp(6px, 0.8vh, 12px);
+            line-height: 0.85;
+            letter-spacing: -3px;
+            margin-bottom: 1vh;
             color: #ffffff;
         }
 
         .email-current {
             display: block;
-            font-size: var(--sidebar-body);
+            font-size: 2vh;
             color: #8e8e93;
             font-weight: 400;
-            margin-bottom: clamp(8px, 0.8vh, 14px);
+            margin-bottom: 1vh;
         }
 
         .clearance-badge {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 7px;
             background: rgba(255,255,255,0.07);
             border: 1px solid rgba(255,255,255,0.15);
             border-radius: 6px;
-            padding: clamp(4px, 0.4vh, 6px) clamp(8px, 0.8vw, 14px);
-            font-size: clamp(9px, 0.75vw, 12px);
+            padding: 5px 12px;
+            font-size: 1.4vh;
             font-weight: 600;
             color: #e5e5ea;
-            letter-spacing: 0.07em;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
-            margin-bottom: clamp(14px, 1.8vh, 28px);
+            margin-bottom: 2.5vh;
         }
-        .clearance-badge i { font-size: 0.8em; color: #30d158; }
+        .clearance-badge i { font-size: 1.2vh; color: #30d158; }
 
         .currently-section h3 {
-            font-size: clamp(9px, 0.75vw, 12px);
+            font-size: 1.3vh;
             text-transform: uppercase;
             letter-spacing: 5px;
             color: #636366;
-            margin-bottom: clamp(8px, 1vh, 14px);
+            margin-bottom: 1.5vh;
             font-weight: 600;
         }
 
-        .current-item {
-            display: flex;
-            align-items: center;
-            gap: clamp(8px, 1vw, 14px);
-            margin-bottom: clamp(8px, 1vh, 14px);
-        }
-
-        .company-logo {
-            width: clamp(24px, 2.5vw, 36px);
-            height: clamp(24px, 2.5vw, 36px);
-            object-fit: contain;
-            border-radius: 7px;
-            background: white;
-            padding: 4px;
-            flex-shrink: 0;
-        }
-
-        .current-item p {
-            font-size: var(--sidebar-body);
-            line-height: 1.3;
-            font-weight: 500;
-            color: #e5e5ea;
-        }
+        .current-item { display: flex; align-items: center; gap: 15px; margin-bottom: 1.5vh; }
+        .company-logo { width: 4.5vh; height: 4.5vh; object-fit: contain; border-radius: 10px; background: white; padding: 6px; }
+        .current-item p { font-size: 2vh; line-height: 1.2; font-weight: 600; }
 
         .sidebar-nav {
             border-top: 1px solid #2c2c2e;
-            padding-top: clamp(10px, 1.5vh, 20px);
-            margin-top: clamp(8px, 1vh, 14px);
+            padding-top: 2vh;
+            margin-top: 1vh;
         }
 
         .sidebar-nav a {
             display: block;
             color: #8e8e93;
             text-decoration: none;
-            font-size: clamp(12px, 1.3vw, 18px);
+            font-size: 2.5vh;
             font-weight: 500;
-            margin-bottom: clamp(4px, 0.6vh, 10px);
+            margin-bottom: 1vh;
             transition: 0.2s;
-            letter-spacing: 0.01em;
         }
-        .sidebar-nav a:hover { color: #ffffff; transform: translateX(7px); }
+        .sidebar-nav a:hover { color: #ffffff; transform: translateX(10px); }
 
-        .social-icons {
-            display: flex;
-            gap: clamp(14px, 1.8vw, 26px);
-            margin-top: auto;
-            padding-top: clamp(10px, 1.5vh, 20px);
-        }
-        .social-icons a {
-            color: #636366;
-            font-size: clamp(18px, 2.5vw, 32px);
-            text-decoration: none;
-            transition: 0.2s;
-        }
+        .social-icons { display: flex; gap: 30px; margin-top: auto; padding-top: 2vh; }
+        .social-icons a { color: #636366; font-size: 4.5vh; text-decoration: none; transition: 0.2s; }
         .social-icons a:hover { color: #ffffff; transform: scale(1.1); }
 
-        /* --- MAIN CONTENT --- */
+        /* --- MAIN CONTENT: responsive --- */
         .main-content {
-            margin-left: var(--sidebar-width);
+            margin-left: 550px;
             flex: 1;
-            padding: clamp(48px, 7vh, 100px) var(--content-pad);
+            padding: clamp(48px, 7vh, 100px) clamp(32px, 5vw, 80px);
             min-height: 100vh;
             min-width: 0;
         }
 
-        section { margin-bottom: var(--section-gap); }
+        section { margin-bottom: clamp(80px, 10vw, 160px); }
 
         h2 {
             font-family: 'Playfair Display', serif;
-            font-size: var(--h2-size);
+            font-size: clamp(36px, 5vw, 68px);
             margin-bottom: clamp(32px, 4vw, 56px);
             letter-spacing: -2px;
             color: #1c1c1e;
@@ -199,26 +155,28 @@
             font-weight: 600;
             color: #636366;
             text-transform: uppercase;
-            font-size: clamp(9px, 0.8vw, 12px);
+            font-size: clamp(10px, 0.85vw, 12px);
             letter-spacing: 6px;
             display: block;
             margin-bottom: clamp(8px, 1vh, 16px);
         }
 
+        /* job entries */
         .job-entry {
             margin-bottom: clamp(48px, 7vw, 120px);
             display: flex;
-            gap: clamp(20px, 3.5vw, 56px);
+            gap: clamp(24px, 3.5vw, 56px);
         }
 
+        /* DATE — bigger and bolder */
         .job-time {
-            flex: 0 0 clamp(110px, 14vw, 200px);
-            font-size: var(--date-size);
+            flex: 0 0 clamp(120px, 14vw, 200px);
+            font-size: clamp(15px, 1.5vw, 20px);
             font-weight: 700;
-            color: #3a3a3c;
+            color: #1c1c1e;
             letter-spacing: -0.01em;
             padding-top: 4px;
-            line-height: 1.3;
+            line-height: 1.4;
         }
 
         .job-details { flex: 1; min-width: 0; }
@@ -226,7 +184,7 @@
         .job-title {
             font-family: 'Playfair Display', serif;
             color: #1c1c1e;
-            font-size: var(--job-title-size);
+            font-size: clamp(22px, 3vw, 42px);
             font-weight: 700;
             display: block;
             margin-bottom: 4px;
@@ -236,22 +194,22 @@
 
         .sub-info {
             color: #636366;
-            font-size: clamp(12px, 1.1vw, 15px);
+            font-size: clamp(13px, 1.1vw, 15px);
             font-weight: 500;
             display: block;
-            margin-bottom: clamp(12px, 1.5vw, 22px);
+            margin-bottom: clamp(14px, 1.8vw, 22px);
         }
 
         .description {
-            font-size: var(--body-size);
+            font-size: clamp(13px, 1.1vw, 15px);
             line-height: 1.75;
             color: #3a3a3c;
             margin-bottom: clamp(16px, 2vw, 36px);
         }
 
-        .bullet-list { list-style: none; margin-bottom: clamp(14px, 1.8vw, 28px); }
+        .bullet-list { list-style: none; margin-bottom: clamp(14px, 2vw, 28px); }
         .bullet-list li {
-            font-size: var(--body-size);
+            font-size: clamp(13px, 1.1vw, 15px);
             line-height: 1.75;
             color: #3a3a3c;
             padding: 6px 0 6px 18px;
@@ -274,20 +232,22 @@
         .cert-item {
             display: block;
             margin-bottom: clamp(8px, 1vw, 12px);
-            font-size: var(--body-size);
+            font-size: clamp(13px, 1.1vw, 15px);
             color: #3a3a3c;
         }
 
-        .class-grid { display: flex; flex-wrap: wrap; gap: clamp(7px, 0.8vw, 12px); }
+        /* PILLS — generously sized */
+        .class-grid { display: flex; flex-wrap: wrap; gap: clamp(10px, 1vw, 16px); }
 
         .class-pill {
             background: #ffffff;
-            padding: clamp(6px, 0.6vw, 10px) clamp(12px, 1.2vw, 20px);
-            border-radius: 8px;
+            padding: clamp(10px, 1vw, 14px) clamp(16px, 1.6vw, 24px);
+            border-radius: 10px;
             border: 1px solid #e5e5e0;
             font-weight: 500;
-            font-size: var(--pill-size);
+            font-size: clamp(13px, 1.1vw, 15px);
             color: #3a3a3c;
+            white-space: nowrap;
         }
 
         /* --- PHOTO SECTION --- */
@@ -301,11 +261,11 @@
         .photo-btn {
             background: white;
             color: #1c1c1e;
-            padding: clamp(12px, 1.2vw, 20px) clamp(24px, 2.5vw, 44px);
+            padding: clamp(14px, 1.4vw, 22px) clamp(28px, 2.8vw, 48px);
             border-radius: 10px;
             text-decoration: none;
             font-weight: 700;
-            font-size: clamp(14px, 1.3vw, 18px);
+            font-size: clamp(15px, 1.4vw, 20px);
             display: inline-block;
             margin-bottom: clamp(24px, 3vw, 48px);
             transition: opacity 0.2s;
@@ -314,24 +274,25 @@
 
         .preview-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(clamp(120px, 18%, 240px), 1fr));
-            gap: clamp(8px, 1vw, 16px);
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: clamp(10px, 1.2vw, 18px);
         }
 
         .large-preview-card {
-            height: clamp(140px, 18vw, 340px);
+            height: clamp(160px, 18vw, 340px);
             border: 1px solid rgba(255,255,255,0.08);
             border-radius: 12px;
             overflow: hidden;
         }
         .large-preview-card img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* --- RESPONSIVE: tablet --- */
-        @media (max-width: 1024px) {
-            :root { --sidebar-width: clamp(220px, 32vw, 320px); }
+        /* --- TABLET (sidebar shrinks a bit) --- */
+        @media (max-width: 1200px) {
+            .sidebar { width: 420px; padding: 3vh 30px; }
+            .main-content { margin-left: 420px; }
         }
 
-        /* --- RESPONSIVE: mobile --- */
+        /* --- MOBILE (sidebar goes full width on top) --- */
         @media (max-width: 768px) {
             body { flex-direction: column; }
 
@@ -340,22 +301,15 @@
                 height: auto;
                 position: relative;
                 overflow: visible;
-                padding: 36px 24px;
+                padding: 48px 32px;
                 text-align: center;
             }
 
             .sidebar-top-container { align-items: center; }
-
-            .portrait {
-                width: 200px;
-                height: 200px;
-                border-radius: 50%;
-                margin: 0 auto clamp(16px, 3vw, 24px);
-            }
-
+            .portrait { width: 220px; height: 220px; border-radius: 50%; margin: 0 auto 20px; }
             .current-item { justify-content: center; }
             .sidebar-nav { display: none; }
-            .social-icons { justify-content: center; padding-top: 24px; }
+            .social-icons { justify-content: center; padding-top: 28px; }
 
             .main-content {
                 margin-left: 0;
@@ -363,24 +317,14 @@
                 padding: 40px 20px;
             }
 
-            .job-entry {
-                flex-direction: column;
-                gap: 8px;
-            }
-
-            .job-time {
-                font-size: clamp(13px, 3.5vw, 16px);
-                flex: none;
-            }
-
+            .job-entry { flex-direction: column; gap: 8px; }
+            .job-time { flex: none; font-size: 15px; }
             .preview-grid { grid-template-columns: repeat(2, 1fr); }
-
-            h2 { letter-spacing: -1px; }
         }
 
-        /* --- RESPONSIVE: small mobile --- */
-        @media (max-width: 400px) {
+        @media (max-width: 420px) {
             .preview-grid { grid-template-columns: 1fr; }
+            .class-pill { white-space: normal; }
         }
     </style>
 </head>
@@ -545,7 +489,7 @@
             <h2>Technical Skills</h2>
 
             <div class="job-entry">
-                <div class="job-time">Security Tools</div>
+                <div class="job-time">Security<br>Tools</div>
                 <div class="job-details">
                     <div class="class-grid">
                         <div class="class-pill">Wazuh</div><div class="class-pill">Grafana</div><div class="class-pill">Tenable Nessus</div>
@@ -567,7 +511,7 @@
             </div>
 
             <div class="job-entry">
-                <div class="job-time">Identity &amp; Access</div>
+                <div class="job-time">Identity &amp;<br>Access</div>
                 <div class="job-details">
                     <div class="class-grid">
                         <div class="class-pill">IAM</div><div class="class-pill">RBAC</div><div class="class-pill">Least Privilege</div>
@@ -577,7 +521,7 @@
             </div>
 
             <div class="job-entry">
-                <div class="job-time">Operating Systems</div>
+                <div class="job-time">Operating<br>Systems</div>
                 <div class="job-details">
                     <div class="class-grid">
                         <div class="class-pill">Windows</div><div class="class-pill">Ubuntu</div>
@@ -597,7 +541,7 @@
             </div>
 
             <div class="job-entry">
-                <div class="job-time">ITSM &amp; Ticketing</div>
+                <div class="job-time">ITSM &amp;<br>Ticketing</div>
                 <div class="job-details">
                     <div class="class-grid">
                         <div class="class-pill">ServiceNow</div><div class="class-pill">Jira</div><div class="class-pill">SysAid</div>
