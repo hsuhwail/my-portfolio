@@ -16,33 +16,45 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        html { scroll-behavior: smooth; }
-        section { scroll-margin-top: 50px; } 
+        :root {
+            --sidebar-width: clamp(260px, 28vw, 480px);
+            --content-pad: clamp(24px, 5vw, 80px);
+            --section-gap: clamp(80px, 10vw, 160px);
+            --h2-size: clamp(36px, 5vw, 68px);
+            --job-title-size: clamp(22px, 3vw, 42px);
+            --date-size: clamp(14px, 1.4vw, 18px);
+            --body-size: clamp(13px, 1.1vw, 15px);
+            --pill-size: clamp(11px, 0.9vw, 13px);
+            --sidebar-name-size: clamp(28px, 3.5vw, 52px);
+            --sidebar-body: clamp(11px, 1.1vw, 14px);
+        }
 
+        html { scroll-behavior: smooth; }
+        section { scroll-margin-top: 50px; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
 
         body {
             background-color: #f5f5f3;
             display: flex;
             min-height: 100vh;
-            overflow-x: hidden; 
+            overflow-x: hidden;
         }
 
         /* --- SIDEBAR --- */
         .sidebar {
-            width: 550px; 
+            width: var(--sidebar-width);
             height: 100vh;
             background: #1c1c1e;
             color: white;
-            padding: 3vh 50px; 
+            padding: clamp(20px, 3vh, 40px) clamp(20px, 3vw, 50px);
             position: fixed;
             left: 0;
             top: 0;
             display: flex;
             flex-direction: column;
-            justify-content: space-between; 
+            justify-content: space-between;
             z-index: 100;
-            overflow: hidden; 
+            overflow: hidden;
         }
 
         .sidebar-top-container {
@@ -54,101 +66,131 @@
 
         .portrait {
             width: 100%;
-            max-width: 380px;
-            height: 22vh; 
+            max-width: 100%;
+            height: clamp(100px, 18vh, 200px);
             object-fit: cover;
-            border-radius: 16px;
+            border-radius: 12px;
             border: 2px solid #3a3a3c;
-            margin-bottom: 2vh;
+            margin-bottom: clamp(12px, 1.5vh, 20px);
             display: block;
         }
 
         .name-title {
             font-family: 'Playfair Display', serif;
-            font-size: 5.5vh;
+            font-size: var(--sidebar-name-size);
             font-weight: 800;
             line-height: 0.9;
-            letter-spacing: -2px;
-            margin-bottom: 1vh;
+            letter-spacing: -1px;
+            margin-bottom: clamp(6px, 0.8vh, 12px);
             color: #ffffff;
         }
 
         .email-current {
             display: block;
-            font-size: 1.8vh;
+            font-size: var(--sidebar-body);
             color: #8e8e93;
             font-weight: 400;
-            margin-bottom: 1vh;
+            margin-bottom: clamp(8px, 0.8vh, 14px);
         }
 
         .clearance-badge {
             display: inline-flex;
             align-items: center;
-            gap: 7px;
-            background: rgba(255, 255, 255, 0.07);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            gap: 6px;
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.15);
             border-radius: 6px;
-            padding: 5px 12px;
-            font-size: 1.4vh;
+            padding: clamp(4px, 0.4vh, 6px) clamp(8px, 0.8vw, 14px);
+            font-size: clamp(9px, 0.75vw, 12px);
             font-weight: 600;
             color: #e5e5ea;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.07em;
             text-transform: uppercase;
-            margin-bottom: 2.5vh;
+            margin-bottom: clamp(14px, 1.8vh, 28px);
         }
-        .clearance-badge i { font-size: 1.2vh; color: #30d158; }
+        .clearance-badge i { font-size: 0.8em; color: #30d158; }
 
         .currently-section h3 {
-            font-size: 1.3vh;
+            font-size: clamp(9px, 0.75vw, 12px);
             text-transform: uppercase;
             letter-spacing: 5px;
             color: #636366;
-            margin-bottom: 1.5vh;
+            margin-bottom: clamp(8px, 1vh, 14px);
             font-weight: 600;
         }
 
-        .current-item { display: flex; align-items: center; gap: 14px; margin-bottom: 1.4vh; }
-        .company-logo { width: 4vh; height: 4vh; object-fit: contain; border-radius: 8px; background: white; padding: 5px; }
-        .current-item p { font-size: 1.8vh; line-height: 1.2; font-weight: 500; color: #e5e5ea; }
+        .current-item {
+            display: flex;
+            align-items: center;
+            gap: clamp(8px, 1vw, 14px);
+            margin-bottom: clamp(8px, 1vh, 14px);
+        }
+
+        .company-logo {
+            width: clamp(24px, 2.5vw, 36px);
+            height: clamp(24px, 2.5vw, 36px);
+            object-fit: contain;
+            border-radius: 7px;
+            background: white;
+            padding: 4px;
+            flex-shrink: 0;
+        }
+
+        .current-item p {
+            font-size: var(--sidebar-body);
+            line-height: 1.3;
+            font-weight: 500;
+            color: #e5e5ea;
+        }
 
         .sidebar-nav {
             border-top: 1px solid #2c2c2e;
-            padding-top: 2vh;
-            margin-top: 1vh;
+            padding-top: clamp(10px, 1.5vh, 20px);
+            margin-top: clamp(8px, 1vh, 14px);
         }
 
         .sidebar-nav a {
             display: block;
             color: #8e8e93;
             text-decoration: none;
-            font-size: 2.2vh; 
+            font-size: clamp(12px, 1.3vw, 18px);
             font-weight: 500;
-            margin-bottom: 0.8vh;
+            margin-bottom: clamp(4px, 0.6vh, 10px);
             transition: 0.2s;
             letter-spacing: 0.01em;
         }
+        .sidebar-nav a:hover { color: #ffffff; transform: translateX(7px); }
 
-        .sidebar-nav a:hover { color: #ffffff; transform: translateX(8px); }
-
-        .social-icons { display: flex; gap: 24px; margin-top: auto; padding-top: 2vh; }
-        .social-icons a { color: #636366; font-size: 4vh; text-decoration: none; transition: 0.2s; }
+        .social-icons {
+            display: flex;
+            gap: clamp(14px, 1.8vw, 26px);
+            margin-top: auto;
+            padding-top: clamp(10px, 1.5vh, 20px);
+        }
+        .social-icons a {
+            color: #636366;
+            font-size: clamp(18px, 2.5vw, 32px);
+            text-decoration: none;
+            transition: 0.2s;
+        }
         .social-icons a:hover { color: #ffffff; transform: scale(1.1); }
 
-        /* --- CONTENT AREA --- */
+        /* --- MAIN CONTENT --- */
         .main-content {
-            margin-left: 550px;
+            margin-left: var(--sidebar-width);
             flex: 1;
-            padding: 100px 80px;
+            padding: clamp(48px, 7vh, 100px) var(--content-pad);
             min-height: 100vh;
+            min-width: 0;
         }
 
-        section { margin-bottom: 160px; }
+        section { margin-bottom: var(--section-gap); }
 
         h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 68px;
-            margin-bottom: 56px;
-            letter-spacing: -3px;
+            font-size: var(--h2-size);
+            margin-bottom: clamp(32px, 4vw, 56px);
+            letter-spacing: -2px;
             color: #1c1c1e;
             line-height: 0.95;
         }
@@ -157,44 +199,62 @@
             font-weight: 600;
             color: #636366;
             text-transform: uppercase;
-            font-size: 12px;
+            font-size: clamp(9px, 0.8vw, 12px);
             letter-spacing: 6px;
             display: block;
-            margin-bottom: 16px;
+            margin-bottom: clamp(8px, 1vh, 16px);
         }
 
-        .job-entry { margin-bottom: 120px; display: flex; gap: 56px; }
-        .job-time { flex: 0 0 180px; font-size: 13px; font-weight: 600; color: #8e8e93; letter-spacing: 0.03em; text-transform: uppercase; padding-top: 6px; }
-        .job-details { flex: 1; }
-        
+        .job-entry {
+            margin-bottom: clamp(48px, 7vw, 120px);
+            display: flex;
+            gap: clamp(20px, 3.5vw, 56px);
+        }
+
+        .job-time {
+            flex: 0 0 clamp(110px, 14vw, 200px);
+            font-size: var(--date-size);
+            font-weight: 700;
+            color: #3a3a3c;
+            letter-spacing: -0.01em;
+            padding-top: 4px;
+            line-height: 1.3;
+        }
+
+        .job-details { flex: 1; min-width: 0; }
+
         .job-title {
             font-family: 'Playfair Display', serif;
             color: #1c1c1e;
-            font-size: 42px;
+            font-size: var(--job-title-size);
             font-weight: 700;
             display: block;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             line-height: 1.1;
-            letter-spacing: -1px;
+            letter-spacing: -0.5px;
         }
 
         .sub-info {
             color: #636366;
-            font-size: 15px;
+            font-size: clamp(12px, 1.1vw, 15px);
             font-weight: 500;
             display: block;
-            margin-bottom: 22px;
-            letter-spacing: 0.01em;
+            margin-bottom: clamp(12px, 1.5vw, 22px);
         }
-        
-        .description { font-size: 16px; line-height: 1.75; color: #3a3a3c; margin-bottom: 36px; font-weight: 400; }
 
-        .bullet-list { list-style: none; margin-bottom: 28px; }
-        .bullet-list li {
-            font-size: 15px;
+        .description {
+            font-size: var(--body-size);
             line-height: 1.75;
             color: #3a3a3c;
-            padding: 7px 0 7px 20px;
+            margin-bottom: clamp(16px, 2vw, 36px);
+        }
+
+        .bullet-list { list-style: none; margin-bottom: clamp(14px, 1.8vw, 28px); }
+        .bullet-list li {
+            font-size: var(--body-size);
+            line-height: 1.75;
+            color: #3a3a3c;
+            padding: 6px 0 6px 18px;
             position: relative;
             border-bottom: 1px solid #e8e8e5;
         }
@@ -203,70 +263,124 @@
             content: '';
             position: absolute;
             left: 0;
-            top: 16px;
+            top: 15px;
             width: 5px;
             height: 5px;
             border-radius: 50%;
             background: #1c1c1e;
-            opacity: 0.3;
+            opacity: 0.25;
         }
 
-        .cert-item { display: block; margin-bottom: 12px; font-size: 15px; color: #3a3a3c; }
+        .cert-item {
+            display: block;
+            margin-bottom: clamp(8px, 1vw, 12px);
+            font-size: var(--body-size);
+            color: #3a3a3c;
+        }
 
-        .class-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+        .class-grid { display: flex; flex-wrap: wrap; gap: clamp(7px, 0.8vw, 12px); }
+
         .class-pill {
             background: #ffffff;
-            padding: 10px 20px;
+            padding: clamp(6px, 0.6vw, 10px) clamp(12px, 1.2vw, 20px);
             border-radius: 8px;
             border: 1px solid #e5e5e0;
             font-weight: 500;
-            font-size: 13px;
+            font-size: var(--pill-size);
             color: #3a3a3c;
-            letter-spacing: 0.01em;
         }
 
         /* --- PHOTO SECTION --- */
         .photo-feature-box {
             background: #1c1c1e;
-            padding: 64px 56px;
-            border-radius: 24px;
-            margin-top: 60px;
+            padding: clamp(32px, 4vw, 64px);
+            border-radius: 20px;
+            margin-top: clamp(32px, 4vw, 60px);
         }
+
         .photo-btn {
             background: white;
             color: #1c1c1e;
-            padding: 20px 44px;
+            padding: clamp(12px, 1.2vw, 20px) clamp(24px, 2.5vw, 44px);
             border-radius: 10px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 18px;
+            font-size: clamp(14px, 1.3vw, 18px);
             display: inline-block;
-            margin-bottom: 48px;
+            margin-bottom: clamp(24px, 3vw, 48px);
             transition: opacity 0.2s;
-            letter-spacing: -0.01em;
         }
         .photo-btn:hover { opacity: 0.85; }
-        .preview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
-        .large-preview-card { height: 340px; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; overflow: hidden; }
-        .large-preview-card img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* --- MOBILE --- */
-        @media (max-width: 1200px) {
-            .sidebar { width: 420px; padding: 3vh 30px; }
-            .main-content { margin-left: 420px; padding: 80px 40px; }
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(clamp(120px, 18%, 240px), 1fr));
+            gap: clamp(8px, 1vw, 16px);
         }
 
+        .large-preview-card {
+            height: clamp(140px, 18vw, 340px);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .large-preview-card img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* --- RESPONSIVE: tablet --- */
         @media (max-width: 1024px) {
+            :root { --sidebar-width: clamp(220px, 32vw, 320px); }
+        }
+
+        /* --- RESPONSIVE: mobile --- */
+        @media (max-width: 768px) {
             body { flex-direction: column; }
-            .sidebar { width: 100%; height: auto; position: relative; overflow: visible; padding: 56px 40px; text-align: center; }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                overflow: visible;
+                padding: 36px 24px;
+                text-align: center;
+            }
+
             .sidebar-top-container { align-items: center; }
-            .portrait { width: 280px; height: 280px; margin: 0 auto 28px; }
-            .main-content { margin-left: 0; padding: 60px 28px; width: 100%; }
+
+            .portrait {
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                margin: 0 auto clamp(16px, 3vw, 24px);
+            }
+
             .current-item { justify-content: center; }
             .sidebar-nav { display: none; }
-            .social-icons { justify-content: center; padding-top: 36px; }
-            h2 { font-size: 52px; }
-            .job-entry { flex-direction: column; gap: 14px; }
+            .social-icons { justify-content: center; padding-top: 24px; }
+
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+                padding: 40px 20px;
+            }
+
+            .job-entry {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .job-time {
+                font-size: clamp(13px, 3.5vw, 16px);
+                flex: none;
+            }
+
+            .preview-grid { grid-template-columns: repeat(2, 1fr); }
+
+            h2 { letter-spacing: -1px; }
+        }
+
+        /* --- RESPONSIVE: small mobile --- */
+        @media (max-width: 400px) {
+            .preview-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -282,7 +396,7 @@
                 <i class="fas fa-shield-halved"></i>
                 Active DoD Security Clearance
             </div>
-            
+
             <div class="currently-section">
                 <h3>Currently → </h3>
                 <div class="current-item">
@@ -296,7 +410,6 @@
             </div>
 
             <nav class="sidebar-nav">
-                <a href="resume.pdf" target="_blank">Resume <i class="fas fa-external-link-alt" style="font-size: 14px; margin-left: 8px;"></i></a>
                 <a href="#experience">Work History</a>
                 <a href="#projects">Projects</a>
                 <a href="#education">Degrees & Certs</a>
@@ -319,7 +432,7 @@
             <h2>Work History</h2>
 
             <div class="job-entry">
-                <div class="job-time">Apr 2025 — Present</div>
+                <div class="job-time">Apr 2025 —<br>Present</div>
                 <div class="job-details">
                     <span class="job-title">L3Harris Technologies</span>
                     <span class="sub-info">NOC Analyst · Greenville, TX</span>
@@ -340,7 +453,7 @@
             </div>
 
             <div class="job-entry">
-                <div class="job-time">Jun 2023 — Aug 2023</div>
+                <div class="job-time">Jun 2023 —<br>Aug 2023</div>
                 <div class="job-details">
                     <span class="job-title">CBRE</span>
                     <span class="sub-info">Software Engineer Intern · Richardson, TX</span>
@@ -362,7 +475,7 @@
             <h2>Featured Work</h2>
 
             <div class="job-entry">
-                <div class="job-time">2024 — Present</div>
+                <div class="job-time">2024 —<br>Present</div>
                 <div class="job-details">
                     <span class="job-title">Defensive Security Home Lab</span>
                     <span class="sub-info">Personal Project · Dakota State University</span>
@@ -384,7 +497,7 @@
                     <span class="job-title">Senior Capstone Project</span>
                     <span class="sub-info">Team Lead · UT Dallas</span>
                     <ul class="bullet-list">
-                        <li>Led an 11-member cross-functional team to deliver a publicly accessible website redesign for a medical device manufacturer, serving as the primary point of contact between the development team and the client sponsor.</li>
+                        <li>Led an 11-member cross-functional team to deliver a publicly accessible website redesign for a medical device manufacturer, serving as primary point of contact between the development team and the client sponsor.</li>
                         <li>Coordinated sprint planning, task delegation, and deadline management across the full project lifecycle using Agile methodology, ensuring all deliverables were completed on time and meeting client approval.</li>
                     </ul>
                     <div class="class-grid">
@@ -454,7 +567,7 @@
             </div>
 
             <div class="job-entry">
-                <div class="job-time">Identity & Access</div>
+                <div class="job-time">Identity &amp; Access</div>
                 <div class="job-details">
                     <div class="class-grid">
                         <div class="class-pill">IAM</div><div class="class-pill">RBAC</div><div class="class-pill">Least Privilege</div>
@@ -484,7 +597,7 @@
             </div>
 
             <div class="job-entry">
-                <div class="job-time">ITSM & Ticketing</div>
+                <div class="job-time">ITSM &amp; Ticketing</div>
                 <div class="job-details">
                     <div class="class-grid">
                         <div class="class-pill">ServiceNow</div><div class="class-pill">Jira</div><div class="class-pill">SysAid</div>
